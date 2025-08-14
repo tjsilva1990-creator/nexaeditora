@@ -6,7 +6,7 @@
   <meta name="view-transition" content="same-origin">
   <title>Editora NEXA</title>
 
-  <!-- View Transitions (CSS externo com @view-transition { navigation:auto }) -->
+  <!-- CSS de transição (opcional, mantém seu estilo atual) -->
   <link rel="stylesheet" href="assets/css/vt.css?v=2">
 
   <!-- Fonts & Icons -->
@@ -135,106 +135,94 @@
     </nav>
   </header>
 
-  <!-- TODO TRANSICIONA AQUI -->
-  <main id="content">
+  <!-- Barba wrapper + container -->
+  <div data-barba="wrapper">
+    <main id="content" data-barba="container" data-barba-namespace="pagina-inicial">
 
-    <div class="intro-section container-1250">
-      <div class="intro-text">
-        <h1>Seu livro pode chegar mais longe do que você imagina.</h1>
-        <p>A NEXA guia autores em uma jornada completa — da ideia ao lançamento — com curadoria editorial, tecnologia e distribuição nacional. Revisão, projeto gráfico, impressão sob demanda e presença nas maiores vitrines do país — tudo em um só lugar, com custos claros e suporte de ponta.</p>
-      </div>
-      <a class="intro-button" href="envie-seu-livro.html">Quero enviar meu livro</a>
-    </div>
-
-    <section class="section dark flex container-1250">
-      <div style="flex:1; padding-right: 20px;">
-        <h2>Por que publicar com a NEXA?</h2>
-        <p>Porque acreditamos no poder da literatura como ferramenta de transformação. Nossa missão é ajudar novos autores a ocuparem seu espaço no mercado com qualidade e profissionalismo, sem barreiras e com total suporte.</p>
-      </div>
-      <div style="flex:1; display: flex; justify-content: center; align-items: center;">
-        <img src="imagem-por-que-publicar.png" alt="Por que publicar com a NEXA" style="max-width:100%; border-radius:10px;">
-      </div>
-    </section>
-
-    <div class="section flex container-1250">
-      <img src="profissionalismo.jpg" alt="Profissionalismo">
-      <div>
-        <h2>Profissionalismo Editorial que Transforma</h2>
-        <p>Mais que editar livros, ajudamos a lapidar ideias. Nossa equipe editorial oferece um acompanhamento próximo em cada etapa: leitura crítica, preparação, revisão, capa, diagramação e tudo o que sua obra precisa para nascer forte.</p>
-      </div>
-    </div>
-
-    <div class="section vantagens container-1250" style="text-align:center; padding:70px 20px;">
-      <h2 style="margin-bottom:35px; font-size:3em; line-height:1.2;">Vantagens exclusivas em publicar com a NEXA</h2>
-      <div class="benefits">
-        <div class="benefit-item">
-          <img src="1-curadoria.png" alt="Curadoria Editorial">
-          <h3>Curadoria Editorial</h3>
-          <p>Análise profissional e prática para aprimorar sua obra.</p>
+      <div class="intro-section container-1250">
+        <div class="intro-text">
+          <h1>Seu livro pode chegar mais longe do que você imagina.</h1>
+          <p>A NEXA guia autores em uma jornada completa — da ideia ao lançamento — com curadoria editorial, tecnologia e distribuição nacional. Revisão, projeto gráfico, impressão sob demanda e presença nas maiores vitrines do país — tudo em um só lugar, com custos claros e suporte de ponta.</p>
         </div>
-        <div class="benefit-item">
-          <img src="2-grafico.png" alt="Projeto Gráfico Exclusivo">
-          <h3>Projeto Gráfico Exclusivo</h3>
-          <p>Capas e diagramações únicas, focadas no leitor.</p>
+        <a class="intro-button" href="envie-seu-livro.html">Quero enviar meu livro</a>
+      </div>
+
+      <section class="section dark flex container-1250">
+        <div style="flex:1; padding-right: 20px;">
+          <h2>Por que publicar com a NEXA?</h2>
+          <p>Porque acreditamos no poder da literatura como ferramenta de transformação. Nossa missão é ajudar novos autores a ocuparem seu espaço no mercado com qualidade e profissionalismo, sem barreiras e com total suporte.</p>
         </div>
-        <div class="benefit-item">
-          <img src="3-marketing.png" alt="Marketing e Divulgação">
-          <h3>Marketing e Divulgação</h3>
-          <p>Presença nos maiores marketplaces e livrarias.</p>
+        <div style="flex:1; display: flex; justify-content: center; align-items: center;">
+          <img src="imagem-por-que-publicar.png" alt="Por que publicar com a NEXA" style="max-width:100%; border-radius:10px;">
         </div>
-        <div class="benefit-item">
-          <img src="4-publicacao.png" alt="Publicação Simplificada">
-          <h3>Publicação Simplificada</h3>
-          <p>Processo ágil, sem burocracia, com acompanhamento total.</p>
+      </section>
+
+      <div class="section flex container-1250">
+        <img src="profissionalismo.jpg" alt="Profissionalismo">
+        <div>
+          <h2>Profissionalismo Editorial que Transforma</h2>
+          <p>Mais que editar livros, ajudamos a lapidar ideias. Nossa equipe editorial oferece um acompanhamento próximo em cada etapa: leitura crítica, preparação, revisão, capa, diagramação e tudo o que sua obra precisa para nascer forte.</p>
         </div>
       </div>
-    </div>
 
-    <section id="distribuicao" class="centered" style="background: transparent; padding-top: 0; padding-bottom: 0; margin-top: 40px; margin-bottom: 60px;">
-      <div class="distribuicao-box">
-        <h2>Distribuição Online e nas Principais Livrarias do País</h2>
-        <p>Coloque sua obra nos maiores marketplaces e nas livrarias mais reconhecidas, alcançando leitores em todo o Brasil.</p>
-        <div class="logo-grid">
-          <img src="logo-amazon.png" alt="Amazon" loading="lazy">
-          <img src="logo-mercadolivre.png" alt="Mercado Livre" loading="lazy">
-          <img src="logo-leitura.png" alt="Livraria Leitura" loading="lazy">
-          <img src="logo-bookwire.png" alt="Bookwire" loading="lazy">
+      <div class="section vantagens container-1250" style="text-align:center; padding:70px 20px;">
+        <h2 style="margin-bottom:35px; font-size:3em; line-height:1.2;">Vantagens exclusivas em publicar com a NEXA</h2>
+        <div class="benefits">
+          <div class="benefit-item">
+            <img src="1-curadoria.png" alt="Curadoria Editorial">
+            <h3>Curadoria Editorial</h3>
+            <p>Análise profissional e prática para aprimorar sua obra.</p>
+          </div>
+          <div class="benefit-item">
+            <img src="2-grafico.png" alt="Projeto Gráfico Exclusivo">
+            <h3>Projeto Gráfico Exclusivo</h3>
+            <p>Capas e diagramações únicas, focadas no leitor.</p>
+          </div>
+          <div class="benefit-item">
+            <img src="3-marketing.png" alt="Marketing e Divulgação">
+            <h3>Marketing e Divulgação</h3>
+            <p>Presença nos maiores marketplaces e livrarias.</p>
+          </div>
+          <div class="benefit-item">
+            <img src="4-publicacao.png" alt="Publicação Simplificada">
+            <h3>Publicação Simplificada</h3>
+            <p>Processo ágil, sem burocracia, com acompanhamento total.</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="section centered dark container-1250" style="margin-bottom: 60px;" id="como-publicar">
-      <h2>Como publicar seu livro com a NEXA?</h2>
-      <div class="steps">
-        <div class="step"><i class="fas fa-upload"></i><p><strong>Envio do Original:</strong> Preencha nosso formulário online e anexe seu manuscrito para uma primeira avaliação.</p></div>
-        <div class="step"><i class="fas fa-search"></i><p><strong>Análise Editorial:</strong> Nossa equipe fará uma leitura crítica, considerando qualidade, originalidade e alinhamento editorial, e enviará por escrito ao autor.</p></div>
-        <div class="step"><i class="fas fa-file-contract"></i><p><strong>Proposta e Contrato:</strong> Se aprovado, apresentamos uma detalhada minuta de contrato de edição.</p></div>
-        <div class="step"><i class="fas fa-edit"></i><p><strong>Produção Editorial:</strong> Revisão, projeto gráfico, diagramação, capa. Cuidamos de tudo com excelência.</p></div>
-        <div class="step"><i class="fas fa-bullhorn"></i><p><strong>Lançamento e Distribuição:</strong> Sua obra no mercado, com estratégias de divulgação e ampla presença.</p></div>
-      </div>
-    </section>
+      <section id="distribuicao" class="centered" style="background: transparent; padding-top: 0; padding-bottom: 0; margin-top: 40px; margin-bottom: 60px;">
+        <div class="distribuicao-box">
+          <h2>Distribuição Online e nas Principais Livrarias do País</h2>
+          <p>Coloque sua obra nos maiores marketplaces e nas livrarias mais reconhecidas, alcançando leitores em todo o Brasil.</p>
+          <div class="logo-grid">
+            <img src="logo-amazon.png" alt="Amazon" loading="lazy">
+            <img src="logo-mercadolivre.png" alt="Mercado Livre" loading="lazy">
+            <img src="logo-leitura.png" alt="Livraria Leitura" loading="lazy">
+            <img src="logo-bookwire.png" alt="Bookwire" loading="lazy">
+          </div>
+        </div>
+      </section>
 
-  </main>
-  <!-- /#content -->
+      <section class="section centered dark container-1250" style="margin-bottom: 60px;" id="como-publicar">
+        <h2>Como publicar seu livro com a NEXA?</h2>
+        <div class="steps">
+          <div class="step"><i class="fas fa-upload"></i><p><strong>Envio do Original:</strong> Preencha nosso formulário online e anexe seu manuscrito para uma primeira avaliação.</p></div>
+          <div class="step"><i class="fas fa-search"></i><p><strong>Análise Editorial:</strong> Nossa equipe fará uma leitura crítica, considerando qualidade, originalidade e alinhamento editorial, e enviará por escrito ao autor.</p></div>
+          <div class="step"><i class="fas fa-file-contract"></i><p><strong>Proposta e Contrato:</strong> Se aprovado, apresentamos uma detalhada minuta de contrato de edição.</p></div>
+          <div class="step"><i class="fas fa-edit"></i><p><strong>Produção Editorial:</strong> Revisão, projeto gráfico, diagramação, capa. Cuidamos de tudo com excelência.</p></div>
+          <div class="step"><i class="fas fa-bullhorn"></i><p><strong>Lançamento e Distribuição:</strong> Sua obra no mercado, com estratégias de divulgação e ampla presença.</p></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <!-- /Barba -->
 
   <footer></footer>
 
-  <!-- (Opcional) se quiser deixar só a transição nativa, remova este script abaixo -->
-  <script>
-  (function () {
-    document.addEventListener('click', function (e) {
-      const a = e.target.closest('a');
-      if (!a) return;
-      const href = a.getAttribute('href') || '';
-      const sameOrigin = a.origin ? (a.origin === location.origin) : true;
-      const isAnchor = href.startsWith('#');
-      const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
-      if (!sameOrigin || isAnchor || noTrans) return;
-      if (!document.startViewTransition) return;
-      e.preventDefault();
-      document.startViewTransition(() => { location.href = a.href; });
-    }, true);
-  })();
-  </script>
+  <!-- Barba.js + seu controller -->
+  <script src="https://unpkg.com/@barba/core"></script>
+  <script src="assets/js/barba-fade.js" defer></script>
 </body>
 </html>
