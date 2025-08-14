@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="view-transition" content="same-origin">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quem Somos • Editora NEXA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      background: url('fundo1.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Cabeçalho padrão NEXA */
+    header {
+      background-color: rgba(0, 0, 51, 0.98);
+      padding: 0.5em 2em;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img { height: 64px; display:block; }
+    nav a {
+      color: white;
+      margin-left: 2.0em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.05em;
+      padding: 1px 1px;
+    }
+    nav a:hover { color: #ffcccb; }
+
+    /* Layout/container e seções */
+    .container-1250 { max-width: 1250px; width: 92%; margin: 0 auto; }
+    .section-dark {
+      background: rgba(0, 0, 51, 0.85);
+      border-radius: 12px;
+      padding: 36px 28px;
+      margin: 42px auto;
+    }
+    .section-dark h1, .section-dark h2 { margin-top: 0; }
+    .lead { font-size: 1.15em; color: #e7e7f3; }
+
+    /* Card branco para conteúdo */
+    .card-white {
+      background: #ffffff;
+      color: #001f3f;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      padding: 26px 24px;
+      margin-top: 18px;
+    }
+    .card-white h2 { color: #001f3f; }
+
+    .bullets { margin: 0; padding-left: 18px; }
+    .bullets li { margin: 8px 0; line-height: 1.55; }
+
+    .cta-wrap { text-align:center; margin-top: 22px; }
+    .btn-primary {
+      background-color: #e5394f;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05em;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity:.95; }
+
+    /* Rodapé */
+    .footer-nexa {
+      background: rgba(0, 0, 51, 0.95);
+      color: #e0e0e0;
+      padding: 28px 20px;
+      margin-top: 60px;
+      font-size: 0.95em;
+    }
+    .footer-bottom { text-align:center; color:#b0b0b0; font-size:0.85em; }
+
+    /* Rodapé colunas (reutilizado) */
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .footer-col { flex: 1; min-width: 220px; }
+    .footer-logo { height: 50px; margin-bottom: 10px; }
+    .footer-col h4 { font-size: 1.1em; margin-bottom: 15px; color: #ffffff; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: #e0e0e0; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #ffcccb; }
+    .social-icons a { display: inline-block; margin-right: 12px; font-size: 1.2em; color: #e0e0e0; transition: color 0.3s; }
+    .social-icons a:hover { color: #ff6b6b; }
+
+    @media (max-width: 840px){
+      nav a { margin-left: 1.2em; }
+    }
+  /* Ajuste padrão da linha de meta (data • tempo de leitura) */
+.card-white .meta { margin: 6px 0 18px !important; }
+
+/* ===== View Transitions: cabeçalho/rodapé/fundo contínuos; conteúdo com fade ===== */
+header { view-transition-name: chrome; }
+footer { view-transition-name: chrome; }
+main#content { view-transition-name: content; }
+body { view-transition-name: pagebg; }
+
+::view-transition-old(content), ::view-transition-new(content) { animation-duration: 220ms; }
+::view-transition-group(chrome),
+::view-transition-image-pair(chrome),
+::view-transition-new(chrome),
+::view-transition-old(chrome) { animation-duration: 0ms; }
+
+::view-transition-old(pagebg), ::view-transition-new(pagebg) { animation-duration: 220ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) { animation-duration: 0ms !important; }
+}
+</style>
+</head>
+<body>
+  <!-- Header com rotas padronizadas -->
+  <header class="container-1250">
+    <a href="pagina-inicial.html" aria-label="Voltar à página inicial">
+      <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA">
+    </a>
+    <nav>
+      <a href="envie-seu-livro.html">Envie seu Livro</a>
+      <a href="quem-somos.html" aria-current="page">Quem Somos</a>
+      <a href="como-funciona.html">Como Funciona</a>
+      <a href="nossos-autores.html">Nossos Autores</a>
+      <a href="blog-nexa.html">Blog Nexa</a>
+      <a href="termos-condicoes.html">Termos e Condições</a>
+</nav>
+  </header>
+
+  <main id="content" class="container-1250">
+    <section class="section-dark">
+      <h1>Quem Somos</h1>
+      <p class="lead"><strong>Onde as histórias se encontram. E ganham o mundo.</strong></p>
+      <p>A Editora NEXA nasceu com um propósito claro: democratizar a publicação de livros no Brasil, unindo tecnologia, agilidade e cuidado editorial em uma experiência acessível e transformadora para novos autores.</p>
+      <p>Acreditamos que cada pessoa tem uma história que merece ser contada — e, mais do que isso, merece ser lida. Por isso, criamos uma plataforma prática e eficiente, que permite ao autor publicar sua obra impressa e digital (ePub com proteção contra cópias), sem barreiras ou burocracia.</p>
+
+      <div class="card-white">
+        <h2>O que nos move</h2>
+        <ul class="bullets">
+          <li><strong>Inovação editorial:</strong> usamos tecnologia para acelerar e simplificar o processo de publicação, mantendo a qualidade.</li>
+          <li><strong>Empoderamento criativo:</strong> aqui, o autor tem voz, controle e total transparência sobre sua obra.</li>
+          <li><strong>Distribuição inteligente:</strong> sua história chega às principais plataformas do Brasil e do mundo.</li>
+          <li><strong>Impressão sob demanda:</strong> produção apenas quando há pedidos, reduzindo custos e garantindo sustentabilidade.</li>
+          <li><strong>Suporte humano:</strong> mesmo sendo digital, temos uma equipe editorial pronta para orientar em todas as etapas.</li>
+        </ul>
+
+        <h2>Nossa missão</h2>
+        <p>Dar vida a novas vozes literárias, de forma profissional, justa e acessível.</p>
+
+        <p>Se você tem uma ideia, um manuscrito ou uma história guardada na gaveta, a NEXA é o lugar para transformá-la em livro. Sem taxas ocultas. Sem pegadinhas. Apenas parceria, inovação e publicação de verdade.</p>
+
+        <div class="cta-wrap">
+          <a class="btn-primary" href="envie-seu-livro.html">Enviar minha obra</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer class="footer-nexa">
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA" class="footer-logo">
+        <p>Endereço: Av. Exemplo, 1234 - São Paulo, SP</p>
+        <p>Telefone: (11) 99999-9999</p>
+        <p>Email: contato@editoranexa.com.br</p>
+      </div>
+      <div class="footer-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="termos-condicoes.html">Termos e Condições</a></li>
+          <li><a href="blog-nexa.html">Blog Nexa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nossos Canais</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Editora NEXA. Todos os direitos reservados.
+    </div>
+  </footer>
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    const sameOrigin = a.origin ? (a.origin === location.origin) : true;
+    const isAnchor = href.startsWith('#');
+    const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
+    if (!sameOrigin || isAnchor || noTrans) return;
+    if (!document.startViewTransition) return;
+    e.preventDefault();
+    document.startViewTransition(() => { location.href = a.href; });
+  }, true);
+})();
+</script>
+</body>
+</html>

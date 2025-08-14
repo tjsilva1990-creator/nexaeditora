@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="view-transition" content="same-origin">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Termos e Condições • Editora NEXA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      background: url('fundo1.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    /* Header padrão NEXA */
+    header {
+      background-color: rgba(0, 0, 51, 0.98);
+      padding: 0.5em 2em;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img { height: 64px; display:block; }
+    nav a {
+      color: white;
+      margin-left: 2.0em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.05em;
+      padding: 1px 1px;
+    }
+    nav a:hover { color: #ffcccb; }
+
+    /* Layout e card branco */
+    .container-1250 { max-width: 1250px; width: 92%; margin: 0 auto; }
+    .section-wrap { padding: 36px 0; }
+    .card-white {
+      background: #ffffff;
+      color: #001f3f;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      padding: 28px 26px;
+      margin: 42px auto;
+      max-width: 1100px;
+    }
+    .card-white h1, .card-white h2, .card-white h3 { color: #001f3f; margin-top: 0; }
+    .lead { font-size: 1.02em; color: #334155; margin: 0 0 14px; }
+    .toc { background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px; margin:10px 0 20px; }
+    .toc h3 { margin: 0 0 8px; font-size: 1.05em; }
+    .toc a { color:#0f172a; text-decoration:none; }
+    .toc a:hover { text-decoration: underline; }
+    .meta { color:#475569; font-size:.95em; margin-bottom: 14px; }
+    .hr { height:1px; background:#e2e8f0; border:0; margin: 18px 0 8px; }
+
+    /* Ações (imprimir/voltar) */
+    .actions { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    .btn {
+      background-color: #e5394f;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.98em;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn.secondary { background:#0f172a; color:#fff; }
+    .btn:hover { opacity:.95; }
+
+    /* Rodapé */
+    .footer-nexa {
+      background: rgba(0, 0, 51, 0.95);
+      color: #e0e0e0;
+      padding: 28px 20px;
+      margin-top: 60px;
+      font-size: 0.95em;
+    }
+    .footer-bottom { text-align:center; color:#b0b0b0; font-size:0.85em; }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .footer-col { flex: 1; min-width: 220px; }
+    .footer-logo { height: 50px; margin-bottom: 10px; }
+    .footer-col h4 { font-size: 1.1em; margin-bottom: 15px; color: #ffffff; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: #e0e0e0; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #ffcccb; }
+    .social-icons a { display: inline-block; margin-right: 12px; font-size: 1.2em; color: #e0e0e0; transition: color 0.3s; }
+    .social-icons a:hover { color: #ff6b6b; }
+
+    @media (max-width: 840px){
+      nav a { margin-left: 1.2em; }
+    }
+  /* Ajuste padrão da linha de meta (data • tempo de leitura) */
+.card-white .meta { margin: 6px 0 18px !important; }
+
+/* ===== View Transitions: cabeçalho/rodapé/fundo contínuos; conteúdo com fade ===== */
+header { view-transition-name: chrome; }
+footer { view-transition-name: chrome; }
+main#content { view-transition-name: content; }
+body { view-transition-name: pagebg; }
+
+::view-transition-old(content), ::view-transition-new(content) { animation-duration: 220ms; }
+::view-transition-group(chrome),
+::view-transition-image-pair(chrome),
+::view-transition-new(chrome),
+::view-transition-old(chrome) { animation-duration: 0ms; }
+
+::view-transition-old(pagebg), ::view-transition-new(pagebg) { animation-duration: 220ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) { animation-duration: 0ms !important; }
+}
+</style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="container-1250">
+    <a href="pagina-inicial.html" aria-label="Voltar à página inicial">
+      <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA">
+    </a>
+    <nav>
+      <a href="envie-seu-livro.html">Envie seu Livro</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="como-funciona.html">Como Funciona</a>
+      <a href="nossos-autores.html">Nossos Autores</a>
+      <a href="blog-nexa.html">Blog Nexa</a>
+      <a href="termos-condicoes.html" aria-current="page">Termos e Condições</a>
+</nav>
+  </header>
+
+  <main id="content" class="container-1250">
+    <section class="section-wrap">
+      <div class="card-white">
+        <h1>Termos e Condições – Submissão de Obras</h1>
+        <p class="meta"><strong>Última atualização:</strong> 14 de agosto de 2025</p>
+        <p class="lead">Estes Termos e Condições disciplinam a submissão de obras literárias para avaliação editorial pela Editora NEXA (“NEXA”, “nós”, “nosso”) e o uso dos dados fornecidos no formulário “Envie seu Livro”. Ao enviar sua obra, você concorda com estes Termos.</p>
+
+        <div class="toc">
+          <h3>Conteúdo</h3>
+          <ol>
+            <li><a href="#definicoes">Definições</a></li>
+            <li><a href="#submissao-avaliacao">Submissão e Avaliação</a></li>
+            <li><a href="#direitos-licenca">Direitos Autorais e Licença Limitada</a></li>
+            <li><a href="#originalidade">Originalidade e Responsabilidade</a></li>
+            <li><a href="#vedados">Conteúdos Vedados</a></li>
+            <li><a href="#lgpd">Proteção de Dados (LGPD)</a></li>
+            <li><a href="#confidencialidade">Confidencialidade</a></li>
+            <li><a href="#proposta-contrato">Proposta, Contrato e Produção</a></li>
+            <li><a href="#distribuicao">Distribuição e Impressão sob Demanda</a></li>
+            <li><a href="#nome-imagem">Uso de Nome e Imagem</a></li>
+            <li><a href="#limitacao">Limitação de Responsabilidade</a></li>
+            <li><a href="#alteracoes">Alterações destes Termos</a></li>
+            <li><a href="#lei-foro">Lei Aplicável e Foro</a></li>
+          </ol>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2 id="definicoes">1. Definições</h2>
+        <p><strong>Autor(a):</strong> a pessoa que envia a obra para avaliação. <br>
+           <strong>Obra:</strong> o arquivo literário submetido (texto, capa e anexos). <br>
+           <strong>Avaliação editorial:</strong> leitura e análise técnica realizadas pela NEXA, com parecer e eventual proposta.</p>
+
+        <h2 id="submissao-avaliacao">2. Submissão e Avaliação</h2>
+        <ol>
+          <li>O envio da obra não implica obrigação de publicação por parte da NEXA.</li>
+          <li>A NEXA poderá aprovar, solicitar ajustes ou recusar a obra, a seu exclusivo critério editorial.</li>
+          <li>O prazo de retorno é estimado e pode variar conforme a fila de avaliação.</li>
+        </ol>
+
+        <h2 id="direitos-licenca">3. Direitos Autorais e Licença Limitada</h2>
+        <ol>
+          <li>Os direitos autorais da obra permanecem integralmente com o(a) autor(a).</li>
+          <li>O(a) autor(a) concede à NEXA uma <strong>licença não exclusiva, gratuita e revogável</strong>, restrita à <strong>avaliação</strong> da obra (incluindo leitura, cópias técnicas e testes internos).</li>
+          <li>Qualquer edição, produção, publicação e distribuição dependerá de <strong>contrato de edição</strong> específico, a ser firmado à parte.</li>
+        </ol>
+
+        <h2 id="originalidade">4. Originalidade e Responsabilidade</h2>
+        <ol>
+          <li>Ao enviar a obra, o(a) autor(a) declara que: (i) é titular dos direitos autorais ou possui autorização válida; (ii) o conteúdo não infringe direitos de terceiros; (iii) não viola leis vigentes.</li>
+          <li>O(a) autor(a) responsabiliza-se por toda e qualquer reclamação de terceiros relativa à obra.</li>
+        </ol>
+
+        <h2 id="vedados">5. Conteúdos Vedados</h2>
+        <p>Não serão aceitas obras com apologia a crimes, discurso de ódio, incitação à violência, pornografia infantil, violação de direitos de personalidade ou qualquer conteúdo ilícito.</p>
+
+        <h2 id="lgpd">6. Proteção de Dados (LGPD)</h2>
+        <ol>
+          <li>Os dados fornecidos serão usados para: (i) contato com o(a) autor(a); (ii) avaliação editorial; (iii) eventual proposta comercial.</li>
+          <li>Base legal: execução de procedimentos preliminares a contrato e legítimo interesse editorial (Lei 13.709/2018).</li>
+          <li>Armazenamento: os dados podem ser mantidos por período necessário à avaliação e registros internos.</li>
+          <li>Direitos do titular: acesso, correção, eliminação e demais previstos na LGPD. Para exercer, contate: <em>privacidade@editoranexa.com.br</em>.</li>
+          <li>Saiba mais em nossa <a href="#" target="_blank" rel="noopener">Política de Privacidade</a>.</li>
+        </ol>
+
+        <h2 id="confidencialidade">7. Confidencialidade</h2>
+        <p>A NEXA manterá a obra em confidencialidade durante a avaliação, podendo compartilhá-la internamente com profissionais contratados (leitores críticos, revisores etc.) vinculados por dever de sigilo.</p>
+
+        <h2 id="proposta-contrato">8. Proposta, Contrato e Produção</h2>
+        <ol>
+          <li>Se a obra for aprovada, a NEXA poderá apresentar proposta contendo escopo, prazos, custos e condições.</li>
+          <li>A produção editorial (revisão, projeto gráfico, capa, diagramação, ISBN, impressão sob demanda e distribuição) só ocorrerá após a assinatura do contrato.</li>
+        </ol>
+
+        <h2 id="distribuicao">9. Distribuição e Impressão sob Demanda</h2>
+        <p>A distribuição poderá ocorrer em marketplaces e livrarias parceiras, inclusive por impressão sob demanda. Canais e prazos dependerão do contrato e das políticas dos parceiros.</p>
+
+        <h2 id="nome-imagem">10. Uso de Nome e Imagem</h2>
+        <p>Mediante contrato, o(a) autor(a) poderá autorizar a NEXA a utilizar nome, imagem e trechos da obra para divulgação, sem ônus adicional.</p>
+
+        <h2 id="limitacao">11. Limitação de Responsabilidade</h2>
+        <p>Até a assinatura do contrato de edição, a responsabilidade da NEXA restringe-se à avaliação da obra. A NEXA não responde por perdas indiretas, lucros cessantes ou expectativas de publicação.</p>
+
+        <h2 id="alteracoes">12. Alterações destes Termos</h2>
+        <p>Estes Termos podem ser atualizados. A versão vigente é a publicada nesta página na data da submissão.</p>
+
+        <h2 id="lei-foro">13. Lei Aplicável e Foro</h2>
+        <p>Aplica-se a legislação brasileira. Fica eleito o foro da Comarca de São Paulo/SP, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+
+        <div class="actions">
+          <a class="btn" href="envie-seu-livro.html">Voltar ao envio da obra</a>
+          <a class="btn secondary" href="Termos_Condicoes_NEXA_2025-08-14.pdf" download>Baixar Termos e Condições</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer-nexa">
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA" class="footer-logo">
+        <p>Endereço: Av. Exemplo, 1234 - São Paulo, SP</p>
+        <p>Telefone: (11) 99999-9999</p>
+        <p>Email: contato@editoranexa.com.br</p>
+      </div>
+      <div class="footer-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="termos-condicoes.html">Termos e Condições</a></li>
+          <li><a href="blog-nexa.html">Blog Nexa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nossos Canais</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Editora NEXA. Todos os direitos reservados.
+    </div>
+  </footer>
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    const sameOrigin = a.origin ? (a.origin === location.origin) : true;
+    const isAnchor = href.startsWith('#');
+    const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
+    if (!sameOrigin || isAnchor || noTrans) return;
+    if (!document.startViewTransition) return;
+    e.preventDefault();
+    document.startViewTransition(() => { location.href = a.href; });
+  }, true);
+})();
+</script>
+<script src="assets/js/pjax.js" defer></script>
+</body>
+</html>

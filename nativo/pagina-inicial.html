@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="view-transition" content="same-origin"> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <title>Editora NEXA</title> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" /> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <style> 
+* { box-sizing: border-box; } body { margin: 0; font-family: 'Roboto', sans-serif; background: url('fundo-nexa-editado.jpg') no-repeat center center fixed; background-size: cover; color: white; } header { background-color: rgba(0, 0, 51, 0.98); padding: 0.5em 2em; position: fixed; top: 0; width: 100%; z-index: 10; display: flex; justify-content: space-around; align-items: center; } header img { height: 70px; } 
+	nav a { color: white; margin-left: 5em; text-decoration: none; font-weight: bold; font-size: 1.2em; padding: 1px 1px;} 
+	nav a:hover { color: #ffcccb; } 
+	.main-content { padding-top: 6em; display: flex; flex-direction: column; align-items: left; gap: 4em; } 
+	.section { max-width: 1450px; background-color: rgba(0, 0, 51, 0.85); border-radius: 10px; padding: 2em; } 
+	.section.centered { text-align: center; padding-top: 2em; } 
+	.section h2 { font-size: 2.2em; margin-bottom: 0.5em; } 
+	.section p { font-size: 1.5em; line-height: 1.6; } 
+	.section.flex { display: flex; gap: 2em; align-items: center; } 
+	.section.flex img { max-width: 40%; border-radius: 10px; } 
+	.benefits { display:flex; flex-wrap:wrap; justify-content:center; gap:36px; } 
+	.benefit-item { background:#ffffff; color:#001f3f; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.12); width:280px; min-height:220px; padding:20px; text-align:center; margin:0; display:flex; flex-direction:column; gap:8px; justify-content:flex-start; } 
+	.benefit-item h3 { font-size: 1.2em; color: #e0e0e0; margin-bottom: 0.3em; } 
+	.steps { display: flex; flex-direction: column; gap: 1.5em; margin-top: 1em; } 
+	.step { display: flex; align-items: flex-start; gap: 1em; } 
+	.step i { font-size: 1.8em; color: #ff6b6b; min-width: 30px; } 
+	.step p { margin: 0; } 
+	.intro-section { display: flex; justify-content: space-between; align-items: center; background-color: rgba(0, 0, 51, 0.75); border-radius: 10px; padding: 2em; max-width: 1100px; width: 90%; } 
+	.intro-text { max-width: 65%; } 
+	.intro-text h1 { font-size: 2em; font-weight: bold; margin-bottom: 0.5em; } 
+	.intro-text p { font-size: 1.1em; line-height: 1.6em; } 
+	.intro-button { background-color: #e5394f; color: white; font-weight: bold; font-size: 1.1em; padding: 1em 2em; border-radius: 6px; border: none; cursor: pointer; height: fit-content; } 
+	.steps .step i { color: #c62828 !important; } 
+	.steps .step p { font-size: 0.98em; line-height: 1.5; } 
+	
+	/* ===== NEXA normalized layout ===== */ 
+	.container-1250 { max-width: 1250px; width: 90%; margin: 0 auto; } .section { max-width: 1250px; margin: 0 auto; padding: 48px 24px; border-radius: 12px; } 
+	.section.centered { text-align: center; } 
+	.section.dark { background-color: rgba(0, 0, 51, 0.85); color: #fff; gap: 96px; } 
+	.section.light { background: #ffffff; color: #001f3f; } 
+	.stack-24 { display: flex; flex-direction: column; gap: 24px; } 
+	.grid-benefits { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; } 
+	.benefit-item { background: #ffffff; color: #001f3f; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.12); width: 280px; min-height: 220px; padding: 20px; text-align: center; } 
+	.benefit-item img { max-width: 64px; margin: 0 auto 12px; display: block; } 
+	.benefit-item h3 { font-size: 1.05em; margin: 6px 0 8px; color: #002147; } 
+	.benefit-item p { font-size: 0.9em; line-height: 1.35; margin: 0; color: #2c2c2c; } 
+	.steps { display: flex; flex-direction: column; gap: 16px; } .step { display: flex; align-items: flex-start; gap: 12px; } 
+	.step i { font-size: 1.35em; color: #e63946; min-width: 22px; } 
+	.intro-section { border-radius: 12px; } 
+	.intro-section .intro-text h1 { line-height: 1.2; } 
+/* distribuição: linha de logos */
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 10px;
+}
+.logo-row img { height: 28px; width: auto; filter: drop-shadow(0 1px 2px rgba(0,0,0,.2)); }
+@media (max-width: 768px){
+  .logo-row img { height: 24px; }
+}
+
+  
+/* --- Callout box for highlighted sections --- */
+.callout {
+  background: rgba(0, 20, 60, 0.85);
+  padding: 28px 36px;
+  border-radius: 16px;
+  max-width: 92%;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.callout h2 {
+  margin: 0 0 12px;
+  font-size: 2.4em;
+  line-height: 1.2;
+  text-align: center;
+}
+.callout p {
+  margin: 0;
+  font-size: 1.25em;
+  line-height: 1.7;
+  text-align: center;
+}
+@media (max-width: 768px){
+  .callout { padding: 22px 18px; border-radius: 14px; }
+  .callout h2 { font-size: 1.8em; }
+  .callout p  { font-size: 1.05em; line-height: 1.6; }
+}
+
+
+/* ====== Caixa branca de distribuição (logos uniformes) ====== */
+.distribuicao-box {
+  background: #ffffff;
+  color: #001f3f;
+  border-radius: 14px;
+  padding: 40px;
+  max-width: 1100px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+}
+.distribuicao-box h2 {
+  color: #001f3f;
+  margin: 0 0 10px;
+  font-size: 2.4em;
+  text-align: center;
+}
+.distribuicao-box p {
+  color: #334155;
+  font-size: 1.05em;
+  line-height: 1.6;
+  margin: 0 auto 18px;
+  max-width: 920px;
+  text-align: center;
+}
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 26px;
+  align-items: center;
+  justify-items: center;
+}
+.logo-grid img {
+  max-height: 42px;   /* altura uniforme dos logos */
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(10%);
+  transition: transform .2s ease, filter .2s ease, opacity .2s ease;
+  opacity: .95;
+}
+.logo-grid img:hover {
+  transform: translateY(-2px);
+  filter: none;
+  opacity: 1;
+}
+@media (max-width : 1550px ){
+  .logo-grid { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+  .logo-grid img { max-height: 36px; }
+}
+@media (max-width: 520px) {
+  .logo-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .distribuicao-box { padding: 22px 18px 26px; }
+  .distribuicao-box h2 { font-size: 1.6em; }
+}
+
+
+/* Ajuste para a seção de distribuição */
+#distribuicao {
+  max-width: none;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.distribuicao-box {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* Ajuste padrão da linha de meta (data • tempo de leitura) */
+.card-white .meta { margin: 6px 0 18px !important; }
+
+/* ===== View Transitions: cabeçalho/rodapé/fundo contínuos; conteúdo com fade ===== */
+header { view-transition-name: chrome; }
+footer { view-transition-name: chrome; }
+main#content { view-transition-name: content; }
+body { view-transition-name: pagebg; }
+
+::view-transition-old(content), ::view-transition-new(content) { animation-duration: 220ms; }
+::view-transition-group(chrome),
+::view-transition-image-pair(chrome),
+::view-transition-new(chrome),
+::view-transition-old(chrome) { animation-duration: 0ms; }
+
+::view-transition-old(pagebg), ::view-transition-new(pagebg) { animation-duration: 220ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) { animation-duration: 0ms !important; }
+}
+</style>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('fundo1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: background-image 1s ease-in-out;
+  }
+</style>
+
+<script>
+  const imagensFundo = [
+    'fundo1.jpg',
+    'fundo2.jpg',
+    'fundo3.jpg'
+  ];
+
+  let indiceAtual = 0;
+
+  setInterval(() => {
+    indiceAtual = (indiceAtual + 1) % imagensFundo.length;
+    document.body.style.backgroundImage = `url('${imagensFundo[indiceAtual]}')`;
+  }, 5000);
+</script>
+
+</head>
+<body> 
+<header>
+  <a href="pagina-inicial.html">
+    <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA">
+  </a>
+  <nav>
+    <a href="envie-seu-livro.html">Envie seu Livro</a>
+    <a href="quem-somos.html">Quem Somos</a>
+    <a href="como-funciona.html">Como Funciona</a>
+    <a href="nossos-autores.html">Nossos Autores</a>
+    <a href="blog-nexa.html">Blog Nexa</a>
+    <a href="termos-condicoes.html">Termos e Condições</a>
+  </nav>
+</header>
+ <div class="main-content"> <div class="intro-section container-1250"> <div class="intro-text"> <h1>Seu livro pode chegar mais longe do que você imagina.</h1> 
+  <p>A NEXA guia autores em uma jornada completa — da ideia ao lançamento — com curadoria editorial, tecnologia e distribuição nacional.&nbsp;Revisão, projeto gráfico, impressão sob demanda e presença nas maiores vitrines do país — tudo em um só lugar, com custos claros e suporte de ponta.</p> 
+  </div> <button class="intro-button">Quero enviar meu livro</button> </div> 
+	
+		<section class="section dark flex container-1250">
+    <div style="flex:1; padding-right: 20px;">
+        <h2>Por que publicar com a NEXA?</h2>
+        <p>Porque acreditamos no poder da literatura como ferramenta de transformação. Nossa missão é ajudar novos autores a ocuparem seu espaço no mercado com qualidade e profissionalismo, sem barreiras e com total suporte.</p>
+    </div>
+    <div style="flex:1; display: flex; justify-content: center; align-items: center;">
+        <img src="imagem-por-que-publicar.png" alt="Por que publicar com a NEXA" style="max-width:100%; border-radius:10px;">
+    </div>
+</section>
+	
+	<div class="section flex"> <img src="profissionalismo.jpg" alt="Profissionalismo"> <div> <h2>Profissionalismo Editorial que Transforma</h2> <p>Mais que editar livros, ajudamos a lapidar ideias. Nossa equipe editorial oferece um acompanhamento próximo em cada etapa: leitura crítica, preparação, revisão, capa, diagramação e tudo o que sua obra precisa para nascer forte.</p> </div> </div> <div class="section vantagens" style="text-align:center; padding:70px 20px; max-width:1450px; margin:auto;"> <h2 style="margin-bottom:35px; font-size:3em; line-height:1.2;">Vantagens exclusivas em publicar com a NEXA</h2> 
+  <div class="benefits">
+    <div class="benefit-item">
+      <img src="1-curadoria.png" alt="Curadoria Editorial" style="max-width:64px; margin:0 auto 12px; display:block;">
+      <h3 style="color:#002147; font-size:1.05em; margin:6px 0 8px;">Curadoria Editorial</h3>
+      <p style="font-size:0.9em; line-height:1.35; margin:0; color:#2c2c2c;">Análise profissional e prática para aprimorar sua obra.</p>
+    </div>
+    <div class="benefit-item">
+      <img src="2-grafico.png" alt="Projeto Gráfico Exclusivo" style="max-width:64px; margin:0 auto 12px; display:block;">
+      <h3 style="color:#002147; font-size:1.05em; margin:6px 0 8px;">Projeto Gráfico Exclusivo</h3>
+      <p style="font-size:0.9em; line-height:1.35; margin:0; color:#2c2c2c;">Capas e diagramações únicas, focadas no leitor.</p>
+    </div>
+    <div class="benefit-item">
+      <img src="3-marketing.png" alt="Marketing e Divulgação" style="max-width:64px; margin:0 auto 12px; display:block;">
+      <h3 style="color:#002147; font-size:1.05em; margin:6px 0 8px;">Marketing e Divulgação</h3>
+      <p style="font-size:0.9em; line-height:1.35; margin:0; color:#2c2c2c;">Presença nos maiores marketplaces e livrarias.</p>
+    </div>
+    <div class="benefit-item">
+      <img src="4-publicacao.png" alt="Publicação Simplificada" style="max-width:64px; margin:0 auto 12px; display:block;">
+      <h3 style="color:#002147; font-size:1.05em; margin:6px 0 8px;">Publicação Simplificada</h3>
+      <p style="font-size:0.9em; line-height:1.35; margin:0; color:#2c2c2c;">Processo ágil, sem burocracia, com acompanhamento total.</p>
+    </div>
+    
+    </div>
+  </div>
+</div> </div> </div> </div>
+</div> </div>
+</div> 
+
+
+<section id="distribuicao" class="centered" style="background: transparent; padding-top: 0; padding-bottom: 0; margin-top: 40px; margin-bottom: 60px;">
+  <div class="distribuicao-box">
+    <h2>Distribuição Online e nas Principais Livrarias do País</h2>
+    <p>Coloque sua obra nos maiores marketplaces e nas livrarias mais reconhecidas, alcançando leitores em todo o Brasil.</p>
+    <div class="logo-grid">
+      <img src="logo-amazon.png" alt="Amazon" loading="lazy">
+      <img src="logo-mercadolivre.png" alt="Mercado Livre" loading="lazy">
+      <img src="logo-leitura.png" alt="Livraria Leitura" loading="lazy">
+      <img src="logo-bookwire.png" alt="Bookwire" loading="lazy">
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section centered dark" style="margin-bottom: 60px;" id="como-publicar"> <h2>Como publicar seu livro com a NEXA?</h2> <div class="steps"> <div class="step"> <i class="fas fa-upload"></i> <p><strong>Envio do Original:</strong> Preencha nosso formulário online e anexe seu manuscrito para uma primeira avaliação.</p> </div> <div class="step"> <i class="fas fa-search"></i> <p><strong>Análise Editorial:</strong> Nossa equipe fará uma leitura crítica, considerando qualidade, originalidade e alinhamento editorial, e enviará por escrito ao autor.</p> </div> <div class="step"> <i class="fas fa-file-contract"></i> <p><strong>Proposta e Contrato:</strong> Se aprovado, apresentamos uma detalhada minuta de contrato de edição.</p> </div> <div class="step"> <i class="fas fa-edit"></i> <p><strong>Produção Editorial:</strong> Revisão, projeto gráfico, diagramação, capa. Cuidamos de tudo com excelência.</p> </div> <div class="step"> <i class="fas fa-bullhorn"></i> <p><strong>Lançamento e Distribuição:</strong> Sua obra no mercado, com estratégias de divulgação e ampla presença.</p> </div> </div>
+</section>
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    const sameOrigin = a.origin ? (a.origin === location.origin) : true;
+    const isAnchor = href.startsWith('#');
+    const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
+    if (!sameOrigin || isAnchor || noTrans) return;
+    if (!document.startViewTransition) return;
+    e.preventDefault();
+    document.startViewTransition(() => { location.href = a.href; });
+  }, true);
+})();
+</script>
+</body>
+</html>

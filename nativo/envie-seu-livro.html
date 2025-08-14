@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="view-transition" content="same-origin">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Envie seu Livro • Editora NEXA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      background: url('fundo1.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background-color: rgba(0, 0, 51, 0.98);
+      padding: 0.5em 2em;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img { height: 64px; display:block; }
+    nav a {
+      color: white;
+      margin-left: 2.4em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.05em;
+      padding: 1px 1px;
+    }
+    nav a:hover { color: #ffcccb; }
+
+    .container-1250 { max-width: 1250px; width: 92%; margin: 0 auto; }
+    .section {
+      background-color: rgba(0, 0, 51, 0.85);
+      border-radius: 12px;
+      padding: 32px 24px;
+      margin: 42px auto;
+    }
+    .section h1 { font-size: 2.1em; margin: 0 0 8px; }
+    .intro { display:flex; flex-direction:column; gap:8px; }
+    .intro p { margin: 0; font-size: 1.05em; line-height: 1.7; color: #e7e7f3; }
+
+    .form-card {
+      background: #ffffff;
+      color: #001f3f;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      padding: 24px;
+      margin-top: 18px;
+    }
+    form.form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-grid .full { grid-column: span 2; }
+
+    label { display:block; font-weight:700; margin-bottom:6px; color:#001f3f; }
+    input, textarea, select { font-family: 'Roboto', sans-serif; font-size: 1em; }
+    input[type="text"], input[type="email"], input[type="file"], input[type="tel"],
+    textarea, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #fff;
+      color: #0f172a;
+    }
+    textarea { resize: vertical; }
+
+    .helper { font-size: 0.9em; color: #475569; margin-top: 2px; }
+
+    .submit-wrap { grid-column: span 2; text-align:center; }
+    .btn-primary {
+      background-color: #e5394f;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05em;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: transform .06s ease, opacity .2s ease;
+    }
+    .btn-primary:hover { opacity:.95; }
+    .btn-primary:active { transform: translateY(1px); }
+
+    .footer-nexa {
+      background: rgba(0, 0, 51, 0.95);
+      color: #e0e0e0;
+      padding: 28px 20px;
+      margin-top: 60px;
+      font-size: 0.95em;
+    }
+    .footer-nexa .footer-bottom { text-align:center; color:#b0b0b0; font-size:0.85em; }
+
+    /* ===== Termos & Modal ===== */
+    .termos-container {
+      font-size: 1.05em;
+      line-height: 1.6;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .termos-container a {
+      color: #e5394f;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .modal-termos {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-conteudo {
+      background: #ffffff;
+      color: #001f3f;
+      padding: 20px;
+      border-radius: 12px;
+      width: 86%;
+      max-width: 760px;
+      max-height: 82%;
+      overflow-y: auto;
+      box-shadow: 0 10px 26px rgba(0,0,0,.28);
+    }
+    .modal-conteudo h2 { margin-top: 0; }
+    .modal-fechar { position: sticky; top: 0; background: #ffffff; padding-bottom: 8px; }
+    .modal-fechar button {
+      background: #e5394f;
+      border: none;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  
+/* ===== Rodapé NEXA (layout colunas) ===== */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+.footer-col { flex: 1; min-width: 220px; }
+.footer-logo { height: 50px; margin-bottom: 10px; }
+.footer-col h4 { font-size: 1.1em; margin-bottom: 15px; color: #ffffff; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul li a { color: #e0e0e0; text-decoration: none; transition: color 0.2s; }
+.footer-col ul li a:hover { color: #ffcccb; }
+.social-icons a { display: inline-block; margin-right: 12px; font-size: 1.2em; color: #e0e0e0; transition: color 0.3s; }
+.social-icons a:hover { color: #ff6b6b; }
+
+/* Ajuste padrão da linha de meta (data • tempo de leitura) */
+.card-white .meta { margin: 6px 0 18px !important; }
+
+/* ===== View Transitions: cabeçalho/rodapé/fundo contínuos; conteúdo com fade ===== */
+header { view-transition-name: chrome; }
+footer { view-transition-name: chrome; }
+main#content { view-transition-name: content; }
+body { view-transition-name: pagebg; }
+
+::view-transition-old(content), ::view-transition-new(content) { animation-duration: 220ms; }
+::view-transition-group(chrome),
+::view-transition-image-pair(chrome),
+::view-transition-new(chrome),
+::view-transition-old(chrome) { animation-duration: 0ms; }
+
+::view-transition-old(pagebg), ::view-transition-new(pagebg) { animation-duration: 220ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) { animation-duration: 0ms !important; }
+}
+</style>
+</head>
+
+<body>
+  
+<header>
+  <a href="pagina-inicial.html" aria-label="Voltar à página inicial">
+    <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA">
+  </a>
+  <nav>
+      <a href="envie-seu-livro.html" aria-current="page">Envie seu Livro</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="como-funciona.html">Como Funciona</a>
+      <a href="nossos-autores.html">Nossos Autores</a>
+      <a href="blog-nexa.html">Blog Nexa</a>
+      <a href="termos-condicoes.html">Termos e Condições</a>
+</nav>
+</header>
+
+
+  <main id="content" class="container-1250">
+    <section class="section">
+      <div class="intro">
+        <h1>Envie seu Livro para Avaliação Editorial</h1>
+        <p>Preencha os dados abaixo e anexe seu original. Nossa equipe fará a leitura crítica e retornará por e-mail com os próximos passos.</p>
+      </div>
+
+      <div class="form-card">
+        <form class="form-grid" enctype="multipart/form-data">
+          <!-- 1. Nome -->
+          <div>
+            <label for="nome">Nome completo do autor</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          </div>
+
+          <!-- 2. E-mail -->
+          <div>
+            <label for="email">E-mail para contato</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+          </div>
+
+          
+  <!-- 2.1 Pseudônimo -->
+  <div>
+    <label for="pseudonimo">Nome do Autor (Pseudônimo)</label>
+    <input type="text" id="pseudonimo" name="pseudonimo" placeholder="Como você assina? (opcional)">
+  </div>
+
+  <!-- 2.2 Telefone -->
+  <div>
+    <label for="telefone">Telefone para contato</label>
+    <input type="tel" id="telefone" name="telefone" inputmode="tel" placeholder="(11) 99999-9999">
+  </div>
+
+<!-- 3. Título -->
+          <div class="full">
+            <label for="titulo">Título da obra</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Como se chama seu livro?" required>
+          </div>
+
+          <!-- 4. Gênero (texto 100) -->
+          <div class="full">
+            <label for="genero">Gênero literário</label>
+            <input type="text" id="genero" name="genero" maxlength="100" placeholder="Ex: Romance, Poesia, Fantasia..." aria-describedby="genero-count">
+            <div class="helper"><span id="genero-count">0</span>/100</div>
+          </div>
+
+          <!-- 5. Sinopse (1000) -->
+          <div class="full">
+            <label for="sinopse">Sinopse da obra</label>
+            <textarea id="sinopse" name="sinopse" rows="6" maxlength="1000" placeholder="Conte-nos brevemente sobre o enredo e objetivos da obra." aria-describedby="sinopse-count"></textarea>
+            <div class="helper"><span id="sinopse-count">0</span>/1000</div>
+          </div>
+
+          <!-- 6. Arquivo do livro -->
+          <div>
+            <label for="arquivoLivro">Arquivo do livro (PDF ou DOCX)</label>
+            <input type="file" id="arquivoLivro" name="arquivoLivro" accept=".pdf,.doc,.docx" required>
+          </div>
+
+          <!-- 7. Arquivo da capa -->
+          <div>
+            <label for="arquivoCapa">Arquivo da capa (opcional)</label>
+            <input type="file" id="arquivoCapa" name="arquivoCapa" accept=".jpg,.jpeg,.png,.pdf">
+          </div>
+
+          <!-- 8. Observações (500) -->
+          <div class="full">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes" rows="4" maxlength="500" placeholder="Informações adicionais relevantes." aria-describedby="obs-count"></textarea>
+            <div class="helper"><span id="obs-count">0</span>/500</div>
+          </div>
+
+          <!-- 9. Termos -->
+          <div class="full termos-container">
+            <input type="checkbox" id="aceite" name="aceite" disabled>
+            <label for="aceite">
+              Confirmo que li e aceito os <a href="#" id="abrir-termos">Termos e Condições</a> da NEXA Editora.
+            </label>
+          </div>
+
+          <!-- 10. Enviar -->
+          <div class="submit-wrap">
+            <button type="submit" class="btn-primary">Enviar para Análise</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal com Termos -->
+  <div class="modal-termos" id="modal-termos">
+    <div class="modal-conteudo" id="conteudo-termos">
+      <div class="modal-fechar">
+        <button id="fechar-termos" type="button">Fechar</button>
+      </div>
+
+      <h2>Termos e Condições – Submissão de Obras</h2>
+      <p><strong>Última atualização:</strong> 14 de agosto de 2025</p>
+
+      <p>Bem-vindo(a) à Editora NEXA (“NEXA”, “nós”, “nosso”). Estes Termos e Condições disciplinam a submissão de obras literárias para avaliação editorial, bem como o uso dos dados fornecidos no formulário “Envie seu Livro”. Ao enviar sua obra, você concorda com estes Termos.</p>
+
+      <h3>1. Definições</h3>
+      <p><strong>Autor(a):</strong> a pessoa que envia a obra para avaliação. <br>
+         <strong>Obra:</strong> o arquivo literário submetido (texto, capa e anexos). <br>
+         <strong>Avaliação editorial:</strong> leitura e análise técnica realizadas pela NEXA, com parecer e eventual proposta.</p>
+
+      <h3>2. Submissão e Avaliação</h3>
+      <ol>
+        <li>O envio da obra não implica obrigação de publicação por parte da NEXA.</li>
+        <li>A NEXA poderá aprovar, solicitar ajustes ou recusar a obra, a seu exclusivo critério editorial.</li>
+        <li>O prazo de retorno é estimado e pode variar conforme a fila de avaliação.</li>
+      </ol>
+
+      <h3>3. Direitos Autorais e Licença Limitada</h3>
+      <ol>
+        <li>Os direitos autorais da obra permanecem integralmente com o(a) autor(a).</li>
+        <li>O(a) autor(a) concede à NEXA uma <strong>licença não exclusiva, gratuita e revogável</strong>, restrita à <strong>avaliação</strong> da obra (incluindo leitura, cópias técnicas e testes internos).</li>
+        <li>Qualquer edição, produção, publicação e distribuição dependerá de <strong>contrato de edição</strong> específico, a ser firmado à parte.</li>
+      </ol>
+
+      <h3>4. Originalidade e Responsabilidade</h3>
+      <ol>
+        <li>Ao enviar a obra, o(a) autor(a) declara que: (i) é titular dos direitos autorais ou possui autorização válida; (ii) o conteúdo não infringe direitos de terceiros; (iii) não viola leis vigentes.</li>
+        <li>O(a) autor(a) responsabiliza-se por toda e qualquer reclamação de terceiros relativa à obra.</li>
+      </ol>
+
+      <h3>5. Conteúdos Vedados</h3>
+      <p>Não serão aceitas obras com apologia a crimes, discurso de ódio, incitação à violência, pornografia infantil, violação de direitos de personalidade ou qualquer conteúdo ilícito.</p>
+
+      <h3>6. Proteção de Dados (LGPD)</h3>
+      <ol>
+        <li>Os dados fornecidos serão usados para: (i) contato com o(a) autor(a); (ii) avaliação editorial; (iii) eventual proposta comercial.</li>
+        <li>Base legal: execução de procedimentos preliminares a contrato e legítimo interesse editorial (Lei 13.709/2018).</li>
+        <li>Armazenamento: os dados podem ser mantidos por período necessário à avaliação e registros internos.</li>
+        <li>Direitos do titular: acesso, correção, eliminação e demais previstos na LGPD. Para exercer, contate: <em>privacidade@editoranexa.com.br</em>.</li>
+        <li>Saiba mais em nossa <a href="#" target="_blank" rel="noopener">Política de Privacidade</a>.</li>
+      </ol>
+
+      <h3>7. Confidencialidade</h3>
+      <p>A NEXA manterá a obra em confidencialidade durante a avaliação, podendo compartilhá-la internamente com profissionais contratados (leitores críticos, revisores etc.) vinculados por dever de sigilo.</p>
+
+      <h3>8. Proposta, Contrato e Produção</h3>
+      <ol>
+        <li>Se a obra for aprovada, a NEXA poderá apresentar proposta contendo escopo, prazos, custos e condições.</li>
+        <li>A produção editorial (revisão, projeto gráfico, capa, diagramação, ISBN, impressão sob demanda e distribuição) só ocorrerá após a assinatura do contrato.</li>
+      </ol>
+
+      <h3>9. Distribuição e Impressão sob Demanda</h3>
+      <p>A distribuição poderá ocorrer em marketplaces e livrarias parceiras, inclusive por impressão sob demanda. Canais e prazos dependerão do contrato e das políticas dos parceiros.</p>
+
+      <h3>10. Uso de Nome e Imagem</h3>
+      <p>Mediante contrato, o(a) autor(a) poderá autorizar a NEXA a utilizar nome, imagem e trechos da obra para divulgação, sem ônus adicional.</p>
+
+      <h3>11. Limitação de Responsabilidade</h3>
+      <p>Até a assinatura do contrato de edição, a responsabilidade da NEXA restringe-se à avaliação da obra. A NEXA não responde por perdas indiretas, lucros cessantes ou expectativas de publicação.</p>
+
+      <h3>12. Alterações destes Termos</h3>
+      <p>Estes Termos podem ser atualizados. A versão vigente é a publicada nesta página na data da submissão.</p>
+
+      <h3>13. Lei Aplicável e Foro</h3>
+      <p>Aplica-se a legislação brasileira. Fica eleito o foro da Comarca de São Paulo/SP, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+      <p>Fim dos Termos.</p>
+    </div>
+  </div>
+
+  <script>
+    // Contadores
+    function bindCount(idField, idCount){
+      var el=document.getElementById(idField), out=document.getElementById(idCount);
+      if(el && out){
+        out.textContent = el.value.length || 0;
+        el.addEventListener("input",()=> out.textContent=el.value.length);
+      }
+    }
+    bindCount('genero','genero-count');
+    bindCount('sinopse','sinopse-count');
+    bindCount('observacoes','obs-count');
+
+    // Modal
+    const modal=document.getElementById("modal-termos");
+    const abrir=document.getElementById("abrir-termos");
+    const fechar=document.getElementById("fechar-termos");
+    const conteudo=document.getElementById("conteudo-termos");
+    const aceite=document.getElementById("aceite");
+
+    abrir.addEventListener("click",e=>{
+      e.preventDefault();
+      modal.style.display="flex";
+      conteudo.scrollTop=0;
+      aceite.disabled=true;
+    });
+    fechar.addEventListener("click",()=> modal.style.display="none");
+    conteudo.addEventListener("scroll",()=>{
+      if(conteudo.scrollTop+conteudo.clientHeight>=conteudo.scrollHeight){
+        aceite.disabled=false;
+      }
+    });
+    modal.addEventListener("click",e=>{
+      if(e.target===modal) modal.style.display="none";
+    });
+
+    // Impede envio sem aceite – segurança extra
+    (function(){
+      var form = document.querySelector('form.form-grid');
+      if(form){
+        form.addEventListener('submit', function(e){
+          var aceite = document.getElementById('aceite');
+          if (!aceite || aceite.disabled || !aceite.checked) {
+            e.preventDefault();
+            alert('Para enviar, é necessário ler os Termos e marcar o aceite.');
+          }
+        });
+      }
+    })();
+  </script>
+
+<footer class="footer-nexa">
+  <div class="footer-container">
+    <div class="footer-col">
+      <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA" class="footer-logo">
+      <p>Endereço: Av. Exemplo, 1234 - São Paulo, SP</p>
+      <p>Telefone: (11) 99999-9999</p>
+      <p>Email: contato@editoranexa.com.br</p>
+    </div>
+    <div class="footer-col">
+      <h4>Suporte</h4>
+      <ul>
+        <li><a href="pagina-inicial.html">Quem Somos</a></li>
+        <li><a href="pagina-inicial.html">Como Funciona</a></li>
+        <li><a href="pagina-inicial.html">Termos e Condições</a></li>
+        <li><a href="pagina-inicial.html">Blog Nexa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Nossos Canais</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 Editora NEXA. Todos os direitos reservados.
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    const sameOrigin = a.origin ? (a.origin === location.origin) : true;
+    const isAnchor = href.startsWith('#');
+    const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
+    if (!sameOrigin || isAnchor || noTrans) return;
+    if (!document.startViewTransition) return;
+    e.preventDefault();
+    document.startViewTransition(() => { location.href = a.href; });
+  }, true);
+})();
+</script>
+</body>
+</html>

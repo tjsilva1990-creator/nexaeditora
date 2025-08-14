@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="view-transition" content="same-origin">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Como Funciona • Editora NEXA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      background: url('fundo1.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    /* Header padrão NEXA */
+    header {
+      background-color: rgba(0, 0, 51, 0.98);
+      padding: 0.5em 2em;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img { height: 64px; display:block; }
+    nav a {
+      color: white;
+      margin-left: 2.0em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.05em;
+      padding: 1px 1px;
+    }
+    nav a:hover { color: #ffcccb; }
+
+    /* Layout e seção */
+    .container-1250 { max-width: 1250px; width: 92%; margin: 0 auto; }
+    .section-dark { background: rgba(0, 0, 51, 0.0); padding: 36px 0; } /* fundo transparente para destacar o card */
+    .card-white {
+      background: #ffffff;
+      color: #001f3f;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      padding: 28px 26px;
+      margin: 42px auto;
+      max-width: 1100px;
+    }
+    .card-white h1, .card-white h2, .card-white h3 { color: #001f3f; margin-top: 0; }
+    .lead { font-size: 1.12em; color: #334155; }
+    .bullets { margin: 0; padding-left: 18px; }
+    .bullets li { margin: 8px 0; line-height: 1.55; }
+
+    /* Step list (ícones simples) */
+    .steps { display: grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap: 14px 24px; margin: 12px 0 10px; }
+    .step { display:flex; gap:10px; align-items:flex-start; }
+    .step i { color:#e5394f; font-size:1.2em; margin-top:3px; }
+
+    /* CTA */
+    .cta-wrap { text-align:center; margin-top: 26px; }
+    .btn-primary {
+      background-color: #e5394f;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05em;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity:.95; }
+
+    /* Rodapé */
+    .footer-nexa {
+      background: rgba(0, 0, 51, 0.95);
+      color: #e0e0e0;
+      padding: 28px 20px;
+      margin-top: 60px;
+      font-size: 0.95em;
+    }
+    .footer-bottom { text-align:center; color:#b0b0b0; font-size:0.85em; }
+
+    /* Rodapé colunas */
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .footer-col { flex: 1; min-width: 220px; }
+    .footer-logo { height: 50px; margin-bottom: 10px; }
+    .footer-col h4 { font-size: 1.1em; margin-bottom: 15px; color: #ffffff; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: #e0e0e0; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #ffcccb; }
+    .social-icons a { display: inline-block; margin-right: 12px; font-size: 1.2em; color: #e0e0e0; transition: color 0.3s; }
+    .social-icons a:hover { color: #ff6b6b; }
+
+    @media (max-width: 840px){
+      nav a { margin-left: 1.2em; }
+      .steps { grid-template-columns: 1fr; }
+    }
+  /* Ajuste padrão da linha de meta (data • tempo de leitura) */
+.card-white .meta { margin: 6px 0 18px !important; }
+
+/* ===== View Transitions: cabeçalho/rodapé/fundo contínuos; conteúdo com fade ===== */
+header { view-transition-name: chrome; }
+footer { view-transition-name: chrome; }
+main#content { view-transition-name: content; }
+body { view-transition-name: pagebg; }
+
+::view-transition-old(content), ::view-transition-new(content) { animation-duration: 220ms; }
+::view-transition-group(chrome),
+::view-transition-image-pair(chrome),
+::view-transition-new(chrome),
+::view-transition-old(chrome) { animation-duration: 0ms; }
+
+::view-transition-old(pagebg), ::view-transition-new(pagebg) { animation-duration: 220ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) { animation-duration: 0ms !important; }
+}
+</style>
+</head>
+<body>
+  <!-- Cabeçalho padrão -->
+  <header class="container-1250">
+    <a href="pagina-inicial.html" aria-label="Voltar à página inicial">
+      <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA">
+    </a>
+    <nav>
+      <a href="envie-seu-livro.html">Envie seu Livro</a>
+      <a href="quem-somos.html">Quem Somos</a>
+      <a href="como-funciona.html" aria-current="page">Como Funciona</a>
+      <a href="nossos-autores.html">Nossos Autores</a>
+      <a href="blog-nexa.html">Blog Nexa</a>
+      <a href="termos-condicoes.html">Termos e Condições</a>
+</nav>
+  </header>
+
+  <main id="content" class="container-1250">
+    <section class="section-dark">
+      <div class="card-white">
+        <h1>Como Funciona</h1>
+        <p class="lead"><strong>Da ideia ao leitor, com método, tecnologia e cuidado editorial.</strong></p>
+
+        <h2>Etapas do processo</h2>
+        <div class="steps">
+          <div class="step"><i class="fas fa-upload"></i><div><strong>Envio do original</strong><br>Você envia seu manuscrito pelo formulário “Envie seu Livro”.</div></div>
+          <div class="step"><i class="fas fa-search"></i><div><strong>Análise editorial</strong><br>Leitura crítica e parecer técnico.</div></div>
+          <div class="step"><i class="fas fa-file-contract"></i><div><strong>Proposta & contrato</strong><br>Escopo, prazos e condições, se aprovado.</div></div>
+          <div class="step"><i class="fas fa-edit"></i><div><strong>Produção editorial</strong><br>Revisão, diagramação, capa, ficha catalográfica e ISBN.</div></div>
+          <div class="step"><i class="fas fa-print"></i><div><strong>Impressão sob demanda</strong><br>Produção somente quando há pedidos — eficiência e sustentabilidade.</div></div>
+          <div class="step"><i class="fas fa-bullhorn"></i><div><strong>Lançamento & distribuição</strong><br>Disponibilização nas principais vitrines e estratégias de divulgação.</div></div>
+        </div>
+
+        <h2>Informação técnica</h2>
+        <ul class="bullets">
+          <li><strong>Formato padrão do impresso:</strong> 16 × 23 cm.</li>
+          <li><strong>Prazo estimado de disponibilidade:</strong> 15 a 25 dias úteis após a assinatura do contrato.</li>
+        </ul>
+
+        <h2>Onde seu livro será vendido</h2>
+        <ul class="bullets">
+          <li>Amazon</li>
+          <li>Livraria Leitura</li>
+          <li>Livraria da Vila</li>
+          <li>Mais de 300 lojas de eBooks ao redor do mundo</li>
+        </ul>
+
+        <h2>Modelo de impressão sob demanda</h2>
+        <p>Os livros são impressos conforme o pedido, eliminando tiragens elevadas e otimizando custos. Estrutura de estoque e impressão própria permite provisão de vendas e armazenagem estratégica quando necessário.</p>
+
+        <h2>Royalties e divulgação</h2>
+        <h3>Exemplo — livro impresso (200 páginas)</h3>
+        <ul class="bullets">
+          <li>Preço de capa: R$ 59,90</li>
+          <li>Venda com desconto padrão de 50%: R$ 29,95</li>
+          <li>Royalties (20%) para o autor: <strong>R$ 5,99 por exemplar vendido</strong></li>
+        </ul>
+
+        <h3>E-book</h3>
+        <ul class="bullets">
+          <li>Royalties de 35% sobre o valor efetivamente recebido pela editora.</li>
+          <li>Custos de produção, impressão e distribuição são da editora.</li>
+          <li>Pagamento mensal dos royalties (mínimo acumulado de R$ 100,00).</li>
+        </ul>
+
+        <h2>Divulgação da sua obra</h2>
+        <ul class="bullets">
+          <li>Presença em redes sociais (mais de 200 mil seguidores)</li>
+          <li>Ações com influenciadores e criadores de conteúdo</li>
+          <li>Campanhas de tráfego pago e orgânico</li>
+        </ul>
+
+        <h2>Como você pode ajudar</h2>
+        <ul class="bullets">
+          <li>Crie (ou atualize) uma página exclusiva para sua obra</li>
+          <li>Compartilhe bastidores da escrita nas redes</li>
+          <li>Ative sua rede de contatos</li>
+          <li>Parcerias com clubes de leitura e blogs literários</li>
+        </ul>
+
+        <div class="cta-wrap">
+          <a class="btn-primary" href="envie-seu-livro.html">Quero enviar meu livro</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-nexa">
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="logo-nexa-branco-sombra.png" alt="Logo NEXA" class="footer-logo">
+        <p>Endereço: Av. Exemplo, 1234 - São Paulo, SP</p>
+        <p>Telefone: (11) 99999-9999</p>
+        <p>Email: contato@editoranexa.com.br</p>
+      </div>
+      <div class="footer-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="como-funciona.html">Como Funciona</a></li>
+          <li><a href="termos-condicoes.html">Termos e Condições</a></li>
+          <li><a href="blog-nexa.html">Blog Nexa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nossos Canais</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Editora NEXA. Todos os direitos reservados.
+    </div>
+  </footer>
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    const sameOrigin = a.origin ? (a.origin === location.origin) : true;
+    const isAnchor = href.startsWith('#');
+    const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
+    if (!sameOrigin || isAnchor || noTrans) return;
+    if (!document.startViewTransition) return;
+    e.preventDefault();
+    document.startViewTransition(() => { location.href = a.href; });
+  }, true);
+})();
+</script>
+<script src="assets/js/pjax.js" defer></script>
+</body>
+</html>
