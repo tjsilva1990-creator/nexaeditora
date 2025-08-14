@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<link rel="stylesheet" href="assets/css/vt.css">
-  <link rel="stylesheet" href="assets/css/vt.css?v=2">
-  <meta name="view-transition" content="same-origin">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="view-transition" content="same-origin">
   <title>Termos e Condições • Editora NEXA</title>
+
+  <!-- View Transitions (CSS externo com @view-transition { navigation:auto }) -->
+  <link rel="stylesheet" href="assets/css/vt.css?v=2">
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * { box-sizing: border-box; }
     body {
@@ -18,11 +22,12 @@
       background: url('fundo1.jpg') no-repeat center center fixed;
       background-size: cover;
     }
-    /* Header padrão NEXA */
+
+    /* Header fixo (consistente com a home) */
     header {
       background-color: rgba(0, 0, 51, 0.98);
       padding: 0.5em 2em;
-      position: sticky;
+      position: fixed;
       top: 0;
       width: 100%;
       z-index: 10;
@@ -40,6 +45,12 @@
       padding: 1px 1px;
     }
     nav a:hover { color: #ffcccb; }
+    @media (max-width: 840px){
+      nav a { margin-left: 1.2em; }
+    }
+
+    /* Conteúdo principal abaixo do header fixo */
+    main#content { padding-top: 6.5em; }
 
     /* Layout e card branco */
     .container-1250 { max-width: 1250px; width: 92%; margin: 0 auto; }
@@ -79,7 +90,7 @@
     .btn.secondary { background:#0f172a; color:#fff; }
     .btn:hover { opacity:.95; }
 
-    /* Rodapé */
+    /* Rodapé padrão */
     .footer-nexa {
       background: rgba(0, 0, 51, 0.95);
       color: #e0e0e0;
@@ -106,31 +117,15 @@
     .social-icons a { display: inline-block; margin-right: 12px; font-size: 1.2em; color: #e0e0e0; transition: color 0.3s; }
     .social-icons a:hover { color: #ff6b6b; }
 
-    @media (max-width: 840px){
-      nav a { margin-left: 1.2em; }
-    }
-  /* Ajuste padrão da linha de meta (data • tempo de leitura) */
-.card-white .meta { margin: 6px 0 18px !important; }
-
-/* ===== View Transitions: cabeçalho/rodapé/fundo contínuos; conteúdo com fade ===== */
-header { view-transition-name: chrome; }
-footer { view-transition-name: chrome; }
-main#content { view-transition-name: content; }
-body { view-transition-name: pagebg; }
-
-::view-transition-old(content), ::view-transition-new(content) { animation-duration: 220ms; }
-::view-transition-group(chrome),
-::view-transition-image-pair(chrome),
-::view-transition-new(chrome),
-::view-transition-old(chrome) { animation-duration: 0ms; }
-
-::view-transition-old(pagebg), ::view-transition-new(pagebg) { animation-duration: 220ms; }
-
-@media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(*) { animation-duration: 0ms !important; }
-}
-</style>
+    /* ===== View Transitions: cabeçalho/rodapé/fundo contínuos; conteúdo com fade =====
+       (As regras principais estão no vt.css; esta página só herda os nomes) */
+    header { view-transition-name: chrome; }
+    footer { view-transition-name: chrome; }
+    main#content { view-transition-name: content; }
+    body { view-transition-name: pagebg; }
+  </style>
 </head>
+
 <body>
   <!-- Cabeçalho -->
   <header class="container-1250">
@@ -144,9 +139,10 @@ body { view-transition-name: pagebg; }
       <a href="nossos-autores.html">Nossos Autores</a>
       <a href="blog-nexa.html">Blog Nexa</a>
       <a href="termos-condicoes.html" aria-current="page">Termos e Condições</a>
-</nav>
+    </nav>
   </header>
 
+  <!-- Tudo que anima em fade fica dentro do #content -->
   <main id="content" class="container-1250">
     <section class="section-wrap">
       <div class="card-white">
@@ -173,7 +169,7 @@ body { view-transition-name: pagebg; }
           </ol>
         </div>
 
-        <div class="hr"></div>
+        <hr class="hr">
 
         <h2 id="definicoes">1. Definições</h2>
         <p><strong>Autor(a):</strong> a pessoa que envia a obra para avaliação. <br>
@@ -275,21 +271,23 @@ body { view-transition-name: pagebg; }
       © 2025 Editora NEXA. Todos os direitos reservados.
     </div>
   </footer>
-<script>
-(function () {
-  document.addEventListener('click', function (e) {
-    const a = e.target.closest('a');
-    if (!a) return;
-    const href = a.getAttribute('href') || '';
-    const sameOrigin = a.origin ? (a.origin === location.origin) : true;
-    const isAnchor = href.startsWith('#');
-    const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
-    if (!sameOrigin || isAnchor || noTrans) return;
-    if (!document.startViewTransition) return;
-    e.preventDefault();
-    document.startViewTransition(() => { location.href = a.href; });
-  }, true);
-})();
-</script>
+
+  <!-- (Opcional) Transição via JS. Se quiser só a nativa, remova este bloco. -->
+  <script>
+  (function () {
+    document.addEventListener('click', function (e) {
+      const a = e.target.closest('a');
+      if (!a) return;
+      const href = a.getAttribute('href') || '';
+      const sameOrigin = a.origin ? (a.origin === location.origin) : true;
+      const isAnchor = href.startsWith('#');
+      const noTrans = a.hasAttribute('data-no-transition') || a.target === '_blank';
+      if (!sameOrigin || isAnchor || noTrans) return;
+      if (!document.startViewTransition) return;
+      e.preventDefault();
+      document.startViewTransition(() => { location.href = a.href; });
+    }, true);
+  })();
+  </script>
 </body>
 </html>
