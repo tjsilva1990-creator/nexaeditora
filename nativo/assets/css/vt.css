@@ -1,40 +1,21 @@
-/* NEXA • Cross-document View Transitions (MPA)
-   Coloque este arquivo em: nativo/assets/css/vt.css
-*/
+/* NEXA • Cross-document View Transitions (MPA) */
+@view-transition { navigation: auto; }     /* opt-in obrigatório */
 
-/* 1) Opt-in obrigatório para animar a navegação entre páginas */
-@view-transition { navigation: auto; }
-
-/* 2) Quem permanece “contínuo” e quem faz fade */
 header, footer { view-transition-name: chrome; }  /* sem animação */
 main#content   { view-transition-name: content; } /* fade suave */
 body           { view-transition-name: pagebg; }  /* fundo suave */
 
-/* 3) Duração do conteúdo (fade) */
 ::view-transition-old(content),
 ::view-transition-new(content) { animation-duration: 220ms; }
 
-/* 4) Header/rodapé sem animação */
 ::view-transition-group(chrome),
 ::view-transition-image-pair(chrome),
 ::view-transition-new(chrome),
 ::view-transition-old(chrome) { animation-duration: 0ms; }
 
-/* 5) Fundo com leve transição */
 ::view-transition-old(pagebg),
 ::view-transition-new(pagebg) { animation-duration: 220ms; }
 
-/* Acessibilidade: respeita reduzir movimento */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*) { animation-duration: 0ms !important; }
 }
-
-/* (Opcional de diagnóstico — descomente para ver se o CSS carregou)
-body::after {
-  content: "vt.css carregado";
-  position: fixed; bottom: 8px; right: 12px;
-  background: rgba(229,57,79,.12); color: #e5394f;
-  font: 12px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  padding: 6px 8px; border-radius: 6px; z-index: 99999;
-}
-*/
