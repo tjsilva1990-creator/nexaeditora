@@ -1,10 +1,13 @@
-/*! NEXA • Barba.js fade-only no main#content (header/footer contínuos) */
+/*! NEXA • Barba.js fade-only no main#content (header/footer contínuos)
+   Ajuste: duração do fade ampliada para 360ms + easing suave.
+   Para um crossfade (leave+enter ao mesmo tempo), troque `sync: false` por `sync: true`.
+*/
 (function () {
-  // Respeita preferências de movimento do sistema
+  // Respeita preferências do sistema
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const DUR = reduce ? 0 : 180;
+  const DUR  = reduce ? 0 : 360;                              // antes: 180
+  const EASE = 'cubic-bezier(.22,.61,.36,1)';                 // ease-out suave
 
-  // Helper: marca link ativo no menu
   function setActiveNav() {
     const page = location.pathname.split('/').pop() || 'pagina-inicial.html';
     document.querySelectorAll('nav a').forEach(a => {
@@ -15,42 +18,31 @@
     });
   }
 
-  // Inicializa Barba
   if (!window.barba) return;
   barba.init({
-    // Não intercepta downloads, âncoras, _blank, externos
     prevent: ({ el }) => (
       el?.hasAttribute('download') ||
       el?.target === '_blank' ||
       (el?.getAttribute('href') || '').startsWith('#') ||
       (el?.origin && el.origin !== location.origin)
     ),
-
     transitions: [{
       name: 'fade',
-
-      // Sai da página atual
+      sync: false, // deixe "true" para crossfade (sobreposição)
       leave({ current }) {
-        // Anima só o container (main#content)
         return current.container
-          .animate([{ opacity: 1 }, { opacity: 0 }], { duration: DUR, easing: 'ease' })
+          .animate([{ opacity: 1 }, { opacity: 0 }], { duration: DUR, easing: EASE })
           .finished;
       },
-
-      // Entra na próxima página
       enter({ next }) {
-        // Garante topo e link ativo
         window.scrollTo({ top: 0, behavior: 'instant' });
         setActiveNav();
-
-        // Anima o container novo de 0 -> 1
         return next.container
-          .animate([{ opacity: 0 }, { opacity: 1 }], { duration: DUR, easing: 'ease' })
+          .animate([{ opacity: 0 }, { opacity: 1 }], { duration: DUR, easing: EASE })
           .finished;
       }
     }]
   });
 
-  // Marca ativo no carregamento inicial
   setActiveNav();
 })();
