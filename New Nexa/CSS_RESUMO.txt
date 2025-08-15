@@ -1,0 +1,11 @@
+Cores encontradas:
+#5f4d93, #636363, #7ec3ee, #8cc9f0, #935d8c, #9acff2, #9bb2e1, #a89cc8, #c79cc8, #dddddd, #e37682, #efa8b0, #f7f7f7, #ffffff
+
+Classes-chave:
+actions, button, content, features, icons, major, spotlight, style1, style2, style3
+
+Amostra de font-family:
+"Courier New", monospace
+"Source Sans Pro", Helvetica, sans-serif
+'Font Awesome 5 Brands'
+'Font Awesome 5 Free'

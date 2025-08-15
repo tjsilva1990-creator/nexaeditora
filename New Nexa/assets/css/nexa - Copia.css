@@ -1,0 +1,436 @@
+/* ===========================
+   NEXA — Tema & Utilitários
+   =========================== */
+
+/* Texto global + fallback de fundo sólido */
+body {
+  color: #eef3ff;
+  background: #0b1e39;
+}
+
+/* Fundo gradiente (azul → azul-marinho) no ::before */
+body::before,
+#wrapper::before {
+  content: "";
+  position: fixed;       /* garante que cubra tudo */
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1000px 600px at 70% -10%, rgba(96,165,250,0.12), rgba(0,0,0,0) 40%),
+    linear-gradient(135deg, #0c203e 0%, #1b3f72 45%, #09142a 100%);
+  opacity: 1 !important;
+}
+
+/* Links e títulos */
+a {
+  color: #1f3d7a;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+h1, h2, h3 {
+  color: #eef3ff;
+  letter-spacing: 0.01em;
+}
+
+/* Botões */
+.button, .actions .button {
+  background: #0b1f3a;
+  border-color: #0b1f3a;
+  color: #fff !important;
+}
+.button.primary {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #0b1220 !important;
+}
+
+/* Seções “transparentes” sobre o gradiente */
+.wrapper, .spotlight, section {
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  background: transparent;
+}
+
+/* Divisor suave */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.08), transparent);
+  margin: 3rem 0;
+}
+
+/* Ícone por imagem (substitui Font Awesome) */
+.statistics .icon.icon-img::before { content: none !important; }
+
+.statistics .icon.icon-img{
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  width: auto !important;
+  height: auto !important;
+	
+  padding: 0;                 /* ajuste se quiser respiro */
+  display: grid;
+  place-items: center;        /* centraliza o logo */
+  text-align: center;             /* centraliza o <span> dentro do <li> */
+  margin-top: 30px;
+	margin-bottom: 30px;
+
+}
+
+.statistics .icon.icon-img img{
+  display: block;
+  width: clamp(96px, 12vw, 220px);  /* ajuste aqui */
+  height: auto;
+  object-fit: contain;
+}
+/* Seção "Onde seu livro será vendido" (id="second") branca */
+#second{
+  background: #fff !important;
+  color: #0b1f3a;              /* texto com contraste no fundo branco */
+  border-radius: 16px;         /* mantém o visual arredondado */
+}
+
+/* Se algum tom rosa vier dos itens da lista, zera dentro da seção */
+#second .statistics li{
+  background: transparent !important;
+  box-shadow: none;
+}
+
+/* Escopo: somente dentro do form #form-nexa */
+/* Campos unificados (inclusive o telefone) */
+#form-nexa input[type="text"],
+#form-nexa input[type="email"],
+#form-nexa input[type="tel"],
+#form-nexa input[type="url"],
+#form-nexa input[type="number"],
+#form-nexa input[type="password"],
+#form-nexa input[type="search"],
+#form-nexa input[type="file"],
+#form-nexa textarea,
+#form-nexa select{
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  color: #0b1f3a;
+  border: 1px solid #d0d8e6;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  line-height: 1.4;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+  -webkit-appearance: none; appearance: none;
+}
+
+
+#form-nexa input::placeholder,
+#form-nexa textarea::placeholder {   color: #3d4863 !important;    /* cinza-azulado mais escuro/legível */
+  opacity: 1;                   /* evita clareamento do tema */ }
+/* Select (alguns temas clareiam demais) */
+#form-nexa select { color: #0b1f3a !important; background-color: #fff; }
+#form-nexa option { color: #0b1f3a; background: #fff; }  /* suporte varia por navegador */
+
+#form-nexa input:hover,
+#form-nexa textarea:hover,
+#form-nexa select:hover { /* ... */ }
+
+#form-nexa input:focus,
+#form-nexa textarea:focus,
+#form-nexa select:focus { border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+  outline: none; }
+
+#form-nexa input:disabled,
+#form-nexa textarea:disabled,
+#form-nexa select:disabled { /* ... */ }
+
+#form-nexa input[type="file"] { /* ... */ }
+#form-nexa input[type="checkbox"] { accent-color: #3b82f6; }
+
+#form-nexa input:-webkit-autofill {  -webkit-text-fill-color: #0b1f3a !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important; }
+#form-nexa input:-webkit-autofill:focus {  -webkit-text-fill-color: #0b1f3a !important;
+  box-shadow:
+    0 0 0 1000px #ffffff inset !important,
+    0 0 0 3px rgba(59,130,246,.15) !important; }
+
+/* Cartão branco para seções específicas */
+.section-card{
+  background: #fff !important;
+  color: #0b1f3a;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  /* opcional: controla o “respiro” interno se o template não der padding suficiente */
+  /* padding: 2rem; */
+}
+/* Caixa branca do aceite */
+.terms-box{
+  background: #fff !important;
+  color: #0b1f3a;
+  border: 1px solid #d0d8e6;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 2.75rem;
+}
+
+/* O template costuma ocultar o input e usar label::before.
+   Estas regras garantem o desenho do "checkbox" no label. */
+.terms-box input[type="checkbox"]{
+  position: absolute;          /* some da tela, mantém acessível */
+  opacity: 0;
+  width: 2; height: 2;
+}
+
+.terms-box label{
+  position: relative;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+/* Caixinha "falsa" antes do texto */
+.terms-box input[type="checkbox"] + label::before{
+  content: "";
+  display: inline-block;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: .5rem;
+  border: 1px solid #c7d2e5;
+  border-radius: 4px;
+  background: #fff;
+  vertical-align: -2px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.04);
+}
+
+/* Estado marcado */
+.terms-box input[type="checkbox"]:checked + label::before{
+  background: #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* Foco via teclado (acessibilidade) */
+.terms-box input[type="checkbox"]:focus + label::before{
+  outline: 3px solid rgba(59,130,246,.25);
+  outline-offset: 2px;
+}
+
+/* Link dentro do label */
+.terms-box a{ text-decoration: underline; 
+}
+/* Modal simples (CSS-only) */
+.modal-termos{
+  position: fixed;
+  inset: 0;
+  display: none;                 /* escondido por padrão */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.7);
+  z-index: 9999;
+}
+.modal-termos:target{ display: flex; }  /* abre quando o hash é #termos */
+
+.modal-caixa{
+  background: #fff;
+  color: #0b1f3a;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  max-width: 880px;
+  max-height: 90vh;
+  padding: 1rem 1.25rem 1.5rem;
+  overflow: auto;                 /* rolagem interna */
+}
+.modal-caixa .fechar{
+  float: right;
+  margin: .25rem 0 .75rem;
+  text-decoration: none;
+  background: #e6eefc;
+  border: 1px solid #c9d7f7;
+  padding: .5rem .85rem;
+  border-radius: 8px;
+  color: #1f3d7a;
+}
+.modal-conteudo a{ color: #1f3d7a; text-decoration: underline; }
+/* Modal simples (abre com :target) */
+.modal-termos{
+  position: fixed;
+  inset: 0;
+  display: none;                 /* escondido por padrão */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.7);
+  z-index: 10001;                /* acima de qualquer overlay do tema */
+}
+.modal-termos:target{ display: flex; }
+
+.modal-caixa{
+  background: #fff;
+  color: #0b1f3a;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  max-width: 880px;
+  max-height: 90vh;
+  padding: 1rem 1.25rem 1.5rem;
+  overflow: auto;                 /* rolagem interna */
+}
+.modal-caixa .fechar{
+  float: right;
+  margin: .25rem 0 .75rem;
+  text-decoration: none;
+  background: #e6eefc;
+  border: 1px solid #c9d7f7;
+  padding: .5rem .85rem;
+  border-radius: 8px;
+  color: #1f3d7a;
+}
+.modal-conteudo a{ color: #1f3d7a; text-decoration: underline; }
+
+/* --- Correções de contraste no modal de Termos --- */
+
+/* Escurece todo o conteúdo do modal */
+.modal-termos .modal-caixa { color: #0b1f3a; }
+
+/* Títulos dentro do modal: forçam cor escura, acima da regra global */
+.modal-termos .modal-caixa h1,
+.modal-termos .modal-caixa h2,
+.modal-termos .modal-caixa h3 {
+  color: #0b1f3a !important;
+  letter-spacing: 0;
+  font-weight: 700;
+  margin: 0 0 .5rem;
+}
+
+/* Subtítulo/itálico (data) com contraste confortável */
+.modal-termos .modal-caixa em { color: #334155; }
+
+/* Área rolável do texto longo (deixa mais alto se preferir) */
+.modal-termos .modal-conteudo{
+  max-height: 62vh;
+  overflow: auto;
+  padding-right: .25rem;
+  line-height: 1.6;
+}
+
+/* Overlay ligeiramente mais escuro */
+.modal-termos{ background: rgba(7,16,31,.72); }
+
+/* Botão "Voltar" fixo no topo da caixa (melhor que float) */
+.modal-termos .fechar{
+  position: sticky;      /* fica sempre visível no topo ao rolar */
+  top: 0;
+  align-self: flex-end;
+  margin: 0 0 .75rem;
+  background: #e6eefc;
+  border: 1px solid #c9d7f7;
+  color: #1f3d7a;
+  padding: .5rem .85rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Responsivo */
+@media (max-width: 480px){
+  .modal-termos .modal-caixa { padding: .75rem 1rem 1rem; }
+  .modal-termos .modal-conteudo{ max-height: 68vh; }
+}
+/* Caixa branca do aceite */
+.terms-box{
+  background:#fff; color:#0b1f3a;
+  border:1px solid #d0d8e6; border-radius:12px;
+  padding:.9rem 1.1rem; box-shadow:0 6px 20px rgba(0,0,0,.06);
+  display:flex; align-items:center; gap:.75rem;
+}
+
+/* Esconde o nativo, mantém acessível */
+.terms-box input[type="checkbox"]{
+  position:absolute; opacity:0; width:0; height:0; pointer-events:none;
+}
+
+/* Label clicável e base do “quadradinho” */
+.terms-box label{ position:relative; cursor:pointer; display:inline-flex; align-items:center; gap:.6rem; line-height:1.5; }
+
+/* Quadradinho */
+.terms-box input[type="checkbox"] + label::before{
+  content:"";
+  width:1.15rem; height:1.15rem;
+  border:1px solid #c7d2e5; border-radius:4px; background:#fff;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.04);
+  display:inline-block; vertical-align:middle;
+}
+
+/* ✓ visível quando marcado */
+.terms-box input[type="checkbox"]:checked + label::before{
+  background:#3b82f6; border-color:#3b82f6;
+}
+
+/* Caixa do aceite */
+.terms-box{
+  background:#fff; color:#0b1f3a;
+  border:1px solid #d0d8e6; border-radius:12px;
+  padding:.9rem 1.1rem; box-shadow:0 6px 20px rgba(0,0,0,.06);
+  display:flex; align-items:center; gap:.75rem;
+}
+
+/* Esconde o nativo, mantém acessível */
+.terms-box input[type="checkbox"]{
+  position:absolute; opacity:0; width:0; height:0; pointer-events:none;
+}
+
+/* Label clicável + quadradinho */
+.terms-box label{ position:relative; cursor:pointer; display:inline-flex; align-items:center; gap:.6rem; line-height:1.5; }
+.terms-box input[type="checkbox"] + label::before{
+  content:"";
+  width:1.15rem; height:1.15rem;
+  border:1px solid #c7d2e5; border-radius:4px; background:#fff;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.04);
+  display:inline-block; vertical-align:middle;
+}
+
+/* REMOVE qualquer check antigo feito com ::after */
+.terms-box input[type="checkbox"] + label::after{ content:none !important; }
+
+/* Estado marcado — ✓ central via SVG */
+.terms-box input[type="checkbox"]:checked + label::before{
+  background:#3b82f6;
+  border-color:#3b82f6;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M20.285 6.709l-11.4 11.4L3.7 12.923l1.414-1.414l3.771 3.772L18.871 5.295z'/%3E%3C/svg%3E");
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:13px 13px; /* ajuste fino: 12–14px conforme gosto */
+}
+
+/* Foco via teclado */
+.terms-box input[type="checkbox"]:focus + label::before{
+  box-shadow:0 0 0 3px rgba(59,130,246,.25);
+}
+
+/* Link */
+.terms-box a{ text-decoration:underline; color:#1f3d7a; }
+
+
+/* ===== Botão maior e vermelho (só neste formulário) ===== */
+#form-nexa .actions.special .button.primary{
+  background: #e5394f !important;   /* vermelho */
+  border-color: #e5394f !important;
+  min-width: 260px;
+  font-size: 1.08rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 22px rgba(229,57,79,.22);
+}
+#form-nexa .actions.special .button.primary:hover{
+  background: #d32f2f !important;
+  border-color: #d32f2f !important;
+}/* Respiro vertical entre TODAS as linhas do form */
+#form-nexa .row.gtr-uniform > * { padding-bottom: 1.1rem; }
+
+/* Mais espaço antes/depois da caixa de aceite e do botão */
+#form-nexa #arquivoCapa { margin-bottom: .45rem; }
+#form-nexa .terms-box { margin: .8rem 0 1.2rem; }
+#form-nexa .actions.special { margin-top: 1rem; }
+
+
+/* Mobile */
+@media (max-width: 736px) {
+  .wrapper, .spotlight, section { border-radius: 12px; }
+}

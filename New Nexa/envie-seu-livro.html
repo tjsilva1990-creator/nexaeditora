@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+  <head>
+    <title>Envie seu Livro • NEXA Editora</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/nexa.css?v=9" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+      /* Ajustes suaves para o formulário dentro do Stellar */
+      .form-helper { font-size:.9em; color:#8da2c0; margin-top:4px; }
+      .terms-row { display:flex; align-items:flex-start; gap:.6rem; }
+      .terms-row a { text-decoration: underline; }
+      .button.primary { cursor:pointer; }
+      /* Modal de Termos (leve e sem dependências) */
+      .modal-termos { display:none; position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:9999; }
+      .modal-termos .modal-wrap {
+        max-width: 760px; margin: 4vh auto; background:#fff; color:#0b1f3a;
+        border-radius: 12px; padding: 1.25rem 1.25rem 1.5rem; max-height: 88vh; overflow:auto;
+      }
+      .modal-termos .modal-actions { position: sticky; top: 0; background:#fff; padding-bottom:.5rem; margin-bottom: 1rem; display:flex; justify-content:flex-end; }
+      .modal-termos .close { background:#e5394f; color:#fff; border:0; border-radius:8px; padding:.5rem .8rem; }
+      /* Compensa o layout do Stellar para inputs mais confortáveis */
+      input[type=text], input[type=email], input[type=tel], input[type=file], textarea, select { font-size:1rem; }
+      textarea { resize: vertical; }
+    </style>
+  </head>
+	<body class="is-preload">
+		<!-- Mini Header NEXA -->
+<div class="site-miniheader" role="banner">
+  
+</div>
+
+		
+<!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Header -->
+<!-- Header -->
+<header id="header" class="header-nexa header-nexa--center">
+  <div class="header-nexa__content">
+    <h1 class="title-xl">Envie seu Livro</h1>
+  </div>
+</header>
+		<nav id="nav">
+<ul>
+	<div class="site-miniheader__inner">
+    <!-- Logo (linka para a home) -->
+    <a href="index-nexa.html" class="brand" aria-label="NEXA Editora — Página inicial">
+      <img src="images/logo-nexa.png" alt="NEXA Editora" class="brand__logo">
+    </a>
+
+    <div class="site-miniheader__actions">
+      <a href="index-nexa.html" class="button small alt">← Voltar ao início</a>
+      <a href="termos.html" class="button small">Termos e Condições</a>
+    </div>
+  </div>
+<li><a class="active" href="#intro"><strong>Quem Somos</strong></a></li>
+<li><a href="#first"><strong>Como Funciona</strong></a></li>
+<li><a href="#second"><strong>Onde seu livro será publicado&nbsp;</strong></a></li>
+<li><a href="#cta"><strong>Envie seu Livro</strong></a></li>
+</ul>
+</nav>
+
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Section: Formulário -->
+
+  
+
+  <form id="form-nexa" method="post" action="#" enctype="multipart/form-data">
+    <div class="row gtr-uniform">
+<section id="content" class="main section-card">
+		<h2>Nos envie seu original para avaliação, preenchendo o formulário&nbsp;</h2>
+  <div class="col-12">
+    <label for="nome"><strong>Nome completo do autor</strong></label>
+    <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+  </div>
+
+  <div class="col-12">
+    <label for="email"><strong>E-mail para contato</strong></label>
+    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+  </div>
+
+  <div class="col-12">
+    <label for="telefone"><strong>Telefone para contato</strong></label>
+    <input
+      type="tel"
+      id="telefone"
+      name="telefone"
+      placeholder="(11) 99999-9999"
+      inputmode="tel"
+      pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"
+      title="Use DDD e 8–9 dígitos. Ex.: (11) 99999-9999"
+      required
+    >
+  </div>
+
+  <div class="col-12">
+    <label for="titulo"><strong>Título da obra</strong></label>
+    <input type="text" id="titulo" name="titulo" placeholder="Como se chama seu livro?" required>
+  </div>
+
+  <div class="col-12">
+    <label for="genero"><strong>Gênero literário</strong></label>
+    <input type="text" id="genero" name="genero" placeholder="Ex.: Romance, Poesia, Fantasia…">
+  </div>
+
+  <div class="col-12">
+    <label for="sinopse"><strong>Sinopse da obra</strong></label>
+    <textarea id="sinopse" name="sinopse" rows="6" maxlength="1000"
+      placeholder="Conte-nos brevemente sobre o enredo e objetivos da obra."></textarea>
+  </div>
+
+  <div class="col-12">
+    <label for="arquivoLivro"><strong>Arquivo do livro</strong> <small>(PDF ou DOCX)</small></label>
+    <input type="file" id="arquivoLivro" name="arquivoLivro" accept=".pdf,.doc,.docx" required>
+  </div>
+
+  <div class="col-12">
+    <label for="arquivoCapa"><strong>Arquivo da capa</strong> <small>(opcional)</small></label>
+    <input type="file" id="arquivoCapa" name="arquivoCapa" accept=".jpg,.jpeg,.png,.pdf">
+  </div>
+
+</div>
+
+
+  <div class="col-12">
+  <div class="terms-box">
+    <input type="checkbox" id="aceite" name="aceite" required>
+    <label for="aceite">
+      Confirmo que li e aceito os
+      <a href="#termos">Termos da NEXA Editora</a>.
+    </label>
+  </div>
+</div>
+
+<div class="col-12" style="text-align:center;">
+  <ul class="actions special">
+    <li><button type="submit" class="button primary">Envie seu livro</button></li>
+  </ul>
+</div>
+
+    
+
+      <!-- Footer (padrão template) -->
+      <footer id="footer">
+        <section>
+          <h2>Fale com a NEXA</h2>
+          <p>contato@editoranexa.com.br • São Paulo/SP</p>
+          <ul class="actions">
+            <li><a href="quem-somos.html" class="button">Quem Somos</a></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Redes</h2>
+          <dl class="alt">
+            <dt>Instagram</dt><dd>@nexaeditora</dd>
+            <dt>LinkedIn</dt><dd>linkedin.com/company/nexaeditora</dd>
+          </dl>
+          <ul class="icons">
+            <li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+          </ul>
+        </section>
+        <p class="copyright">© NEXA. Design base: HTML5 UP (Stellar).</p>
+      </footer>
+</div>
+
+    <!-- Scripts (padrão Stellar) -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+    <!-- JS leve: contadores + modal termos + bloqueio sem aceite -->
+<script>
+      // Contadores de caracteres
+      function bindCount(idField, idOut){
+        var el = document.getElementById(idField), out = document.getElementById(idOut);
+        if(el && out){
+          out.textContent = el.value.length || 0;
+          el.addEventListener('input', function(){ out.textContent = el.value.length; });
+        }
+      }
+      bindCount('genero', 'genero-count');
+      bindCount('sinopse', 'sinopse-count');
+      bindCount('observacoes', 'obs-count');
+
+      // Modal de Termos (inserido abaixo via template-friendly)
+      (function(){
+        const abrir = document.getElementById('abrir-termos');
+        if(!abrir) return;
+        const modal = document.createElement('div');
+        modal.className = 'modal-termos';
+        modal.innerHTML = `
+          <div class="modal-wrap">
+            <div class="modal-actions"><button type="button" class="close" id="fechar-termos">Fechar</button></div>
+            <h2>Termos e Condições – Submissão de Obras</h2>
+            <p><strong>Resumo:</strong> O envio não implica obrigação de publicação. A NEXA pode aprovar, solicitar ajustes ou recusar. Direitos autorais permanecem com o(a) autor(a). O uso dos dados segue a LGPD para avaliação e eventual proposta.</p>
+            <p>Ao marcar o aceite, você confirma que leu e concorda com estes Termos. A versão completa pode ser disponibilizada nesta página ou em um link dedicado.</p>
+          </div>`;
+        document.body.appendChild(modal);
+
+        abrir.addEventListener('click', function(e){ e.preventDefault(); modal.style.display='block'; });
+        document.addEventListener('click', function(e){
+          if(e.target.id==='fechar-termos' || e.target === modal) modal.style.display='none';
+        });
+      })();
+
+      // Bloqueia envio sem aceitar termos
+      (function(){
+        var form = document.getElementById('form-nexa');
+        if(!form) return;
+        form.addEventListener('submit', function(e){
+          var aceite = document.getElementById('aceite');
+          if(!aceite || !aceite.checked){
+            e.preventDefault();
+            alert('Para enviar, é necessário ler e aceitar os Termos e Condições.');
+          }
+        });
+      })();
+    </script>
+	<script>
+  (function(){
+    var form = document.getElementById('form-nexa');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      var ace = document.getElementById('aceite');
+      var out = document.getElementById('aceite-erro');
+      if(!ace.checked){
+        e.preventDefault();
+        if(out){
+          out.textContent = 'Para enviar, é necessário aceitar os Termos da NEXA Editora.';
+          out.style.color = '#e5394f';
+        } else {
+          alert('Para enviar, é necessário aceitar os Termos da NEXA Editora.');
+        }
+        ace.focus();
+      } else if(out){
+        out.textContent = '';
+      }
+    });
+  })();
+</script>
+<!-- Modal: Termos e Condições -->
+<div id="modal-termos" class="modal-termos" role="dialog" aria-modal="true" aria-labelledby="modal-termos-titulo" style="display:none;">
+  <div class="modal-wrap" role="document">
+    <div class="modal-actions">
+      <button type="button" class="button" id="fechar-termos">Voltar</button>
+    </div>
+
+    <h2 id="modal-termos-titulo">Termos e Condições – Submissão de Obras</h2>
+    <p><em>Última atualização: 14 de agosto de 2025</em></p>
+
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+		<div id="termos" class="modal-termos" role="dialog" aria-modal="true" aria-labelledby="titulo-termos">
+  <div class="modal-caixa" role="document">
+    <a href="#!" class="fechar">Voltar</a>
+
+    <h2 id="titulo-termos">Termos e Condições – Submissão de Obras</h2>
+    <p><em>Última atualização: 14 de agosto de 2025</em></p>
+	  <p>Estes Termos e Condições disciplinam a submissão de obras literárias para avaliação editorial pela Editora NEXA (“NEXA”, “nós”, “nosso”) e o uso dos dados fornecidos no formulário “Envie seu Livro”. Ao enviar sua obra, você concorda com estes Termos.</p>
+
+      <h3>Conteúdo</h3>
+      <ol>
+        <li>Definições</li>
+        <li>Submissão e Avaliação</li>
+        <li>Direitos Autorais e Licença Limitada</li>
+        <li>Originalidade e Responsabilidade</li>
+        <li>Conteúdos Vedados</li>
+        <li>Proteção de Dados (LGPD)</li>
+        <li>Confidencialidade</li>
+        <li>Proposta, Contrato e Produção</li>
+        <li>Distribuição e Impressão sob Demanda</li>
+        <li>Uso de Nome e Imagem</li>
+        <li>Limitação de Responsabilidade</li>
+        <li>Alterações destes Termos</li>
+        <li>Lei Aplicável e Foro</li>
+      </ol>
+
+      <h3>1. Definições</h3>
+      <p><strong>Autor(a):</strong> a pessoa que envia a obra para avaliação.<br>
+         <strong>Obra:</strong> o arquivo literário submetido (texto, capa e anexos).<br>
+         <strong>Avaliação editorial:</strong> leitura e análise técnica realizadas pela NEXA, com parecer e eventual proposta.</p>
+
+      <h3>2. Submissão e Avaliação</h3>
+      <p>O envio da obra não implica obrigação de publicação por parte da NEXA. A NEXA poderá aprovar, solicitar ajustes ou recusar a obra, a seu exclusivo critério editorial. O prazo de retorno é estimado e pode variar conforme a fila de avaliação.</p>
+
+      <h3>3. Direitos Autorais e Licença Limitada</h3>
+      <p>Os direitos autorais da obra permanecem integralmente com o(a) autor(a). O(a) autor(a) concede à NEXA uma licença não exclusiva, gratuita e revogável, restrita à avaliação da obra (incluindo leitura, cópias técnicas e testes internos). Qualquer edição, produção, publicação e distribuição dependerá de contrato de edição específico, a ser firmado à parte.</p>
+
+      <h3>4. Originalidade e Responsabilidade</h3>
+      <p>Ao enviar a obra, o(a) autor(a) declara que: (i) é titular dos direitos autorais ou possui autorização válida; (ii) o conteúdo não infringe direitos de terceiros; (iii) não viola leis vigentes. O(a) autor(a) responsabiliza-se por toda e qualquer reclamação de terceiros relativa à obra.</p>
+
+      <h3>5. Conteúdos Vedados</h3>
+      <p>Não serão aceitas obras com apologia a crimes, discurso de ódio, incitação à violência, pornografia infantil, violação de direitos de personalidade ou qualquer conteúdo ilícito.</p>
+
+      <h3>6. Proteção de Dados (LGPD)</h3>
+      <p>Os dados fornecidos serão usados para: (i) contato com o(a) autor(a); (ii) avaliação editorial; (iii) eventual proposta comercial. Base legal: execução de procedimentos preliminares a contrato e legítimo interesse editorial (Lei 13.709/2018). Armazenamento: os dados podem ser mantidos por período necessário à avaliação e registros internos. Direitos do titular: acesso, correção, eliminação e demais previstos na LGPD. Para exercer, contate: <a href="mailto:privacidade@editoranexa.com.br">privacidade@editoranexa.com.br</a>. Saiba mais em nossa Política de Privacidade.</p>
+
+      <h3>7. Confidencialidade</h3>
+      <p>A NEXA manterá a obra em confidencialidade durante a avaliação, podendo compartilhá-la internamente com profissionais contratados (leitores críticos, revisores etc.) vinculados por dever de sigilo.</p>
+
+      <h3>8. Proposta, Contrato e Produção</h3>
+      <p>Se a obra for aprovada, a NEXA poderá apresentar proposta contendo escopo, prazos, custos e condições. A produção editorial (revisão, projeto gráfico, capa, diagramação, ISBN, impressão sob demanda e distribuição) só ocorrerá após a assinatura do contrato.</p>
+
+      <h3>9. Distribuição e Impressão sob Demanda</h3>
+      <p>A distribuição poderá ocorrer em marketplaces e livrarias parceiras, inclusive por impressão sob demanda. Canais e prazos dependerão do contrato e das políticas dos parceiros.</p>
+
+      <h3>10. Uso de Nome e Imagem</h3>
+      <p>Mediante contrato, o(a) autor(a) poderá autorizar a NEXA a utilizar nome, imagem e trechos da obra para divulgação, sem ônus adicional.</p>
+
+      <h3>11. Limitação de Responsabilidade</h3>
+      <p>Até a assinatura do contrato de edição, a responsabilidade da NEXA restringe-se à avaliação da obra. A NEXA não responde por perdas indiretas, lucros cessantes ou expectativas de publicação.</p>
+
+      <h3>12. Alterações destes Termos</h3>
+      <p>Estes Termos podem ser atualizados. A versão vigente é a publicada nesta página na data da submissão.</p>
+
+      <h3>13. Lei Aplicável e Foro</h3>
+      <p>Aplica-se a legislação brasileira. Fica eleito o foro da Comarca de São Paulo/SP, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+
+    <div class="modal-conteudo">
+      <!-- (seu texto longo dos termos vai aqui, igual você enviou) -->
+      <!-- ... -->
+    </div>
+  </div>
+</div>
+</body>
+</html>
